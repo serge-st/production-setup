@@ -1,3 +1,3 @@
 export const testungFun = (): void => {
-    alert('testing')
+    console.log('testing 12354')
 }

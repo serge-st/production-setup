@@ -1,6 +1,6 @@
-import * as path from 'path';
-import { Configuration } from 'webpack';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import { Configuration, ProgressPlugin } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config: Configuration = {
   mode: 'development',
@@ -22,9 +22,12 @@ const config: Configuration = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, 'public', 'index.html'),
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+    }),
+    new ProgressPlugin(),
+  ],
 };
 
 export default config;
