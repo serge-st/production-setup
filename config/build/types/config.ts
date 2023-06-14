@@ -9,4 +9,10 @@ interface BuildPaths {
 export interface BuildOptions {
     mode: Configuration['mode'];
     paths: BuildPaths;
+    devServerPort: number;
+    isDev: boolean;
+}
+export interface BuildEnv {
+    MODE: Configuration['mode'];
+    PORT: string;
 }

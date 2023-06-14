@@ -4,5 +4,5 @@ const testing = (name: string): void => {
     console.log(`Hello ${name}!`);
 }
 
-testing('Boba');
+testing('Boba123');
 testungFun();
