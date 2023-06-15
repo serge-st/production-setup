@@ -3,7 +3,6 @@ import { BuildOptions } from './types/config';
 import { getLoaders } from './getLoaders';
 import { getPlugins } from './getPlugins';
 import { getResolvers } from './getResolvers';
-import { } from 'webpack-dev-server';
 import { getDevServerConfig } from './getDevServerConfig';
 
 export function getWebpackConfig(buildOptions: BuildOptions): Configuration {
