@@ -3,7 +3,7 @@ import { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types/config';
 
 export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
-    const { isDevServer } = buildOptions;
+    const { isDev, isDevServer } = buildOptions;
 
     const typeScriptLoader = {
         test: /\.tsx?$/,
@@ -21,7 +21,18 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
                         esModule: false,
                     },
                 },
-            'css-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: {
+                        auto: (resPath: string): boolean => resPath.includes('.module.'),
+                        localIdentName: isDev
+                            ? '[path][name]__[local]--[hash:base64:4]'
+                            : '[hash:base64:8]'
+                        ,
+                    },
+                },
+            },
             'sass-loader',
         ],
     }
