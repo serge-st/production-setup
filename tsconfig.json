@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
+	"compilerOptions": {
 			"outDir": "./dist/",
 			"noImplicitAny": true,
 			"module": "ESNext",
 			"target": "es6",
-			"jsx": "react",
+			"jsx": "react-jsx",
 			"allowJs": true,
 			"moduleResolution": "node",
 			"esModuleInterop": true,
 			"allowSyntheticDefaultImports": true
-    },
-    "ts-node": {
-      "compilerOptions": {
-        "module": "CommonJS"
-      }
-    }
+	},
+	"ts-node": {
+	  "compilerOptions": {
+		"module": "CommonJS"
+	  }
+	}
 }

@@ -12,7 +12,7 @@ export function getWebpackConfig(buildOptions: BuildOptions): Configuration {
         mode: mode,
         entry: paths.entry,
         module: {
-            rules: getLoaders(),
+            rules: getLoaders(buildOptions),
         },
         resolve: getResolvers(),
         output: {
