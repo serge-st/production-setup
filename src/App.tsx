@@ -12,14 +12,11 @@ const App: FC = () => {
         <div className='App'>
             <Link to={'/'}>Main Page</Link>
             <Link to={'/about'}>About Page</Link>
+
             <Routes>
                 <Route path='/' element={<MainPage />} />
                 <Route path='/about' element={<AboutPage />} />
             </Routes>
-            <Counter />
-            <button className={classes.btn}>test</button>
-            <button className={classes.btn}>test red</button>
-            <p className="test">test p should be lime</p>
         </div>
     );
 };
