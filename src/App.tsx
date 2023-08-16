@@ -1,20 +1,23 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import './index.scss';
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
-import AboutPage from './pages/AboutPage/AboutPage';
 import { Link } from 'react-router-dom';
+import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
+import { MainPageAsync } from './pages/MainPage/MainPage.async';
 
 const App: FC = () => {
     return (
         <div className='App'>
             <Link to={'/'}>Main Page</Link>
             <Link to={'/about'}>About Page</Link>
+            
+            <Suspense fallback='Loading...'>
+                <Routes>
+                    <Route path='/' element={<MainPageAsync />} />
 
-            <Routes>
-                <Route path='/' element={<MainPage />} />
-                <Route path='/about' element={<AboutPage />} />
-            </Routes>
+                        <Route path='/about' element={<AboutPageAsync />} />
+                </Routes>
+            </Suspense>
         </div>
     );
 };
