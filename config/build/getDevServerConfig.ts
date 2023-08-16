@@ -5,5 +5,6 @@ export function getDevServerConfig(buildOptions: BuildOptions): DevServerConfigu
     return {
         port: buildOptions.devServerPort,
         open: true,
+        historyApiFallback: true,
     }
 }
