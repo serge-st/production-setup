@@ -1,7 +1,5 @@
 import { FC } from 'react';
-import Counter from './Components/Counter';
 import './index.scss';
-import classes from './App.module.scss';
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import AboutPage from './pages/AboutPage/AboutPage';
