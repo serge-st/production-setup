@@ -4,6 +4,7 @@
 @import "./themes/dark.scss";
 
 .App {
-	background-color: antiquewhite;
 	height: 100vh;
+	background-color: antiquewhite;
+	font: var(--font-m);
 }
