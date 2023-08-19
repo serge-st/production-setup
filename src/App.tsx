@@ -1,5 +1,5 @@
 import { FC, Suspense } from 'react';
-import './index.scss';
+import './styles/index.scss';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';

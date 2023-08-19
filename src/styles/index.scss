@@ -1,0 +1,9 @@
+@import "./reset.scss";
+@import "./variables/global.scss";
+@import "./themes/regular.scss";
+@import "./themes/dark.scss";
+
+.App {
+	background-color: antiquewhite;
+	height: 100vh;
+}
