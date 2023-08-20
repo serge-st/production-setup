@@ -1,5 +1,10 @@
 // https://colorhunt.co/palette/352f445c5470b9b4c7faf0e6
 
 .App.regular {
-    --bg-color: tomato;
+    --primary-color: #352F44;
+    --secondary-color: #5C5470;
+    --tertiary-color: #B9B4C7;
+
+    --bg-color: #FAF0E6;
+    --error-color: #D15C5C;
 }
