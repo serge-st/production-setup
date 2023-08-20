@@ -1,28 +1,24 @@
-import { FC, Suspense, useState } from 'react';
+import { FC, Suspense, useContext, useState } from 'react';
 import './styles/index.scss';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';
 import { MainPageAsync } from './pages/MainPage/MainPageAsync';
+import Counter from './Components/Counter';
+import { Theme, ThemeContext } from './theme/ThemeContext';
 
-const THEME = {
-	REGULAR: 'regular',
-	DARK: 'dark',
-} as const;
-
-type ObjectValues<T> = T[keyof T];
-type Theme = ObjectValues<typeof THEME>;
 
 const App: FC = () => {
-    const [theme, setTheme] = useState<Theme>('regular');
+    console.log(Math.random(), 'Counter Render')
+    const {theme, toggleTheme} = useContext(ThemeContext);
 
-    const handleClick = () => {
-        setTheme(theme === 'regular' ? 'dark' : 'regular');
-    }
+    console.log(theme)
+
+
 
     return (
         <div className={`App ${theme}`}>
-            <button type="button" onClick={handleClick}>Toggle Theme</button><br></br>
+            <button type="button" onClick={() => toggleTheme()}>Toggle Theme</button><br></br>
             <Link to={'/'}>Main Page</Link>
             <Link to={'/about'}>About Page</Link>
             
@@ -32,6 +28,8 @@ const App: FC = () => {
                     <Route path='/about' element={<AboutPageAsync />} />
                 </Routes>
             </Suspense>
+
+            <Counter />
         </div>
     );
 };
