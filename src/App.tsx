@@ -7,7 +7,7 @@ import { MainPageAsync } from './pages/MainPage/MainPageAsync';
 
 const App: FC = () => {
     return (
-        <div className='App'>
+        <div className='App regular'>
             <Link to={'/'}>Main Page</Link>
             <Link to={'/about'}>About Page</Link>
             
