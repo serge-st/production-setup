@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-const THEME = {
+export const THEME = {
     REGULAR: 'regular',
     DARK: 'dark',
 } as const;
