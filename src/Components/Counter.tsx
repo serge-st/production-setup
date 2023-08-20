@@ -2,9 +2,11 @@ import { useState } from 'react';
 import classes from './Counter.module.scss';
 
 const Counter = () => {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
-    console.log(Math.random(), 'Counter Render')
+    // !! JUST FOR TESTING PURPOSES
+    console.log(Math.random(), 'Counter Render');
+
     return (
         <div>
             <h1>{count}</h1>

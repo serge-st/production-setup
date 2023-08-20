@@ -5,9 +5,10 @@ import { LOCAL_STORAGE_THEME_KEY } from './storageKeys';
 interface UseThemeResult {
     theme: Theme;
     toggleTheme: () => void;
+    setTheme: (theme: Theme) => void;
 }
 
-export const useToggleTheme = (): UseThemeResult => {
+export const useTheme = (): UseThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const toggleTheme = () => {
@@ -16,8 +17,14 @@ export const useToggleTheme = (): UseThemeResult => {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     }
 
+    const setThemeWithStorage = (themeName: Theme) => {
+        setTheme(themeName);
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeName);
+    }
+
     return {
         theme,
         toggleTheme,
+        setTheme: setThemeWithStorage,
     }
 }

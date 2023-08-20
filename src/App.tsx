@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';
 import { MainPageAsync } from './pages/MainPage/MainPageAsync';
 import Counter from './Components/Counter';
-import { useToggleTheme } from './theme/useToggleTheme';
+import { useTheme } from './theme/useTheme';
 
 
 const App: FC = () => {
-    const {theme, toggleTheme} = useToggleTheme();
+    const {theme, toggleTheme} = useTheme();
+
+    // !! JUST FOR TESTING PURPOSES
+    console.log(Math.random(), 'App render')
 
     return (
         <div className={`App ${theme}`}>
