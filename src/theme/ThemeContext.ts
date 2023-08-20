@@ -9,7 +9,7 @@ export type Theme = ObjectValues<typeof THEME>;
 
 export interface ThemeContextProps {
     theme?: Theme;
-    toggleTheme?: () => void;
+    setTheme?: (theme: Theme) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({});
