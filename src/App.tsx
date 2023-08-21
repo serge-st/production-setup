@@ -6,7 +6,7 @@ import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';
 import { MainPageAsync } from './pages/MainPage/MainPageAsync';
 import Counter from './Components/Counter';
 import { useTheme } from './theme/useTheme';
-
+import { classNames } from './helpers/classNames/classNames';
 
 const App: FC = () => {
     const {theme, toggleTheme} = useTheme();
@@ -15,7 +15,7 @@ const App: FC = () => {
     console.log(Math.random(), 'App render')
 
     return (
-        <div className={`App ${theme}`}>
+        <div className={classNames('App', {}, [theme])}>
             <button type="button" onClick={() => toggleTheme()}>Toggle Theme</button><br></br>
             <Link to={'/'}>Main Page</Link>
             <Link to={'/about'}>About Page</Link>
