@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
-import { THEME, Theme, ThemeContext, ThemeContextProps } from '../../../../shared/config/theme/ThemeContext';
-import { LOCAL_STORAGE_THEME_KEY } from '../../../../shared/lib/storageKeys';
+import { THEME, Theme, ThemeContext, ThemeContextProps } from '../lib/ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY } from '../lib/localStorageUtils';
 
 interface ThemeProviderProps {
     children?: ReactNode;
