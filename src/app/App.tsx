@@ -2,10 +2,9 @@ import './styles/index.scss';
 import { FC, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';
-import { MainPageAsync } from './pages/MainPage/MainPageAsync';
-import { useTheme } from './theme/useTheme';
-import { classNames } from './helpers/classNames/classNames';
+import { MainPage } from 'pages/MainPage';
+import { AboutPage } from 'pages/AboutPage';
+import { classNames, useTheme } from 'shared/lib';
 
 const App: FC = () => {
     const {theme, toggleTheme} = useTheme();
@@ -21,8 +20,8 @@ const App: FC = () => {
             
             <Suspense fallback='Loading...'>
                 <Routes>
-                    <Route path='/' element={<MainPageAsync />} />
-                    <Route path='/about' element={<AboutPageAsync />} />
+                    <Route path='/' element={<MainPage />} />
+                    <Route path='/about' element={<AboutPage />} />
                 </Routes>
             </Suspense>
         </div>
