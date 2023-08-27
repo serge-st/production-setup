@@ -1,0 +1,16 @@
+.Navbar {
+    --padding-gap-size-desk: 20px;
+
+    width: 100%;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--padding-gap-size-desk);
+    justify-content: flex-end;
+    background-color: var(--primary-color);
+}
+
+.links {
+    display: flex;
+    gap: var(--padding-gap-size-desk);
+}
