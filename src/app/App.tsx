@@ -5,7 +5,7 @@ import { classNames, useTheme } from 'shared/lib';
 import { Navbar } from 'widgets/Navbar';
 
 export const App: FC = () => {
-    const {theme, toggleTheme} = useTheme();
+    const {theme} = useTheme();
 
     // !! JUST FOR TESTING PURPOSES
     console.log(Math.random(), 'App render')
@@ -13,7 +13,6 @@ export const App: FC = () => {
     return (
         <div className={classNames('App', {}, [theme])}>
             <Navbar />
-            <button type="button" onClick={() => toggleTheme()}>Toggle Theme</button><br></br>
             <AppRouter />
         </div>
     );

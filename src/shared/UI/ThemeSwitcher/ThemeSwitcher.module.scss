@@ -1,0 +1,30 @@
+.ThemeSwitcher {
+    height: 100%;
+    width: 50px;
+}
+
+.themeIconContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.themeIconContainer svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+// MoonIcon
+.themeIconContainer.regular {
+    padding: 9px;
+}
+.themeIconContainer.regular svg path {
+    fill: var(--tertiary-color);
+}
+
+// SunIcon
+.themeIconContainer.dark {
+    padding: 5px;
+}
+.themeIconContainer.dark svg path {
+    stroke: var(--tertiary-color);
+}
