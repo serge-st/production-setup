@@ -1,0 +1,6 @@
+.Sidebar {
+    height: calc(100vh - var(--nav-height));
+    width: 300px;
+    background-color: var(--primary-color);
+    padding: var(--padding-gap-size-desk);
+}
