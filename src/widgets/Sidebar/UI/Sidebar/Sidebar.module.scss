@@ -3,4 +3,9 @@
     width: 300px;
     background-color: var(--primary-color);
     padding: var(--padding-gap-size-desk);
+    transition: width 0.23s;
+}
+
+.collapsed {
+    width: 80px;
 }
