@@ -12,8 +12,7 @@
 }
 
 .arrowButton {
-    width: 40px;
-    height: 40px;
+    height: var(--font-line-height-m);
     position: absolute;
     top: var(--padding-gap-size-desk);
     right: var(--padding-gap-size-desk);
