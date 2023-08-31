@@ -17,14 +17,16 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
 
     return (
         <aside className={classNames(cls.Sidebar, {[cls.collapsed]: isClosed}, [className])}>
-            <AppButton
-                onClick={handleClick}
-                type='button'
-                theme={'clear-inversed'}
-                className={cls.arrowButton}
-            >
-                <RightArrow />
-            </AppButton>
+            <div className={cls.sidebarToggleContainer}>
+                <AppButton
+                    onClick={handleClick}
+                    type='button'
+                    theme={'clear-inversed'}
+                    className={cls.arrowButton}
+                >
+                    <RightArrow />
+                </AppButton>
+            </div>
         </aside>
     );
 };

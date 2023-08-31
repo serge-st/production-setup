@@ -1,23 +1,28 @@
 .Sidebar {
+    --transition-time: 0.23s;
+
     height: calc(100vh - var(--nav-height));
     width: 300px;
     background-color: var(--primary-color);
     padding: var(--padding-gap-size-desk);
-    transition: width 0.23s;
-    position: relative;
+    transition: width var(--transition-time);
+    display: flex;
+    flex-direction: column;
 }
 
 .collapsed {
     width: 80px;
 }
 
-.arrowButton {
+.sidebarToggleContainer {
     height: var(--font-line-height-m);
-    position: absolute;
-    top: var(--padding-gap-size-desk);
-    right: var(--padding-gap-size-desk);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.arrowButton {
     transform: scale(-1, 1);
-    transition: transform 0.23s linear;
+    transition: transform var(--transition-time) linear;
 }
 
 .Sidebar.collapsed .arrowButton {
