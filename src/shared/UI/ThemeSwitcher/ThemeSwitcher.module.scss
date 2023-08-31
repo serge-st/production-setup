@@ -1,30 +1,30 @@
 .ThemeSwitcher {
-    height: 100%;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
-.themeIconContainer {
+.theme-icon-container {
     height: 100%;
     width: 100%;
 }
 
-.themeIconContainer svg {
+.theme-icon-container svg {
     max-width: 100%;
     max-height: 100%;
 }
 
 // MoonIcon
-.themeIconContainer.regular {
+.theme-icon-container.regular {
     padding: 9px;
 }
-.themeIconContainer.regular svg path {
+.theme-icon-container.regular svg path {
     fill: var(--tertiary-color);
 }
 
 // SunIcon
-.themeIconContainer.dark {
+.theme-icon-container.dark {
     padding: 5px;
 }
-.themeIconContainer.dark svg path {
+.theme-icon-container.dark svg path {
     stroke: var(--tertiary-color);
 }
