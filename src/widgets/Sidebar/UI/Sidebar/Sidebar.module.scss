@@ -1,18 +1,16 @@
 .Sidebar {
-    --transition-time: 0.23s;
-
     height: calc(100vh - var(--nav-height));
-    width: 300px;
+    width: var(--sidebar-width);
     background-color: var(--primary-color);
     padding: var(--padding-gap-size-desk);
-    transition: width var(--transition-time);
+    transition: width var(--sidebar-transition-time);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .collapsed {
-    width: 80px;
+    width: var(--sidebar-width-collapsed);
 }
 
 .sidebar-toggle-container {
@@ -23,7 +21,7 @@
 
 .arrow-button {
     transform: scale(-1, 1);
-    transition: transform var(--transition-time) linear;
+    transition: transform var(--sidebar-transition-time) linear;
 }
 
 .Sidebar.collapsed .arrow-button {
