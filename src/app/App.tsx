@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { AppRouter } from 'app/providers/AppRouter';
 import { classNames, useTheme } from 'shared/lib';
 import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar/UI/Sidebar/Sidebar';
+import { Sidebar } from 'widgets/Sidebar';
 
 export const App: FC = () => {
     const {theme} = useTheme();

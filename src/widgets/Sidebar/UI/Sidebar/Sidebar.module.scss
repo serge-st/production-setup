@@ -37,9 +37,21 @@
     stroke: var(--tertiary-color);
 }
 
-.theme-switcher-container {
+.switcher-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
+    transform: scale(1, 1);
+    transition: transform var(--sidebar-transition-time) linear;
+}
+
+.Sidebar.collapsed .switcher-container {
+    flex-direction: column;
+    transform: scale(-1, 1);
+}
+
+.Sidebar.collapsed .switcher-container > * {
+    transform: scale(-1, 1);
 }

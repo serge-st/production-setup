@@ -29,8 +29,8 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
                     <RightArrow />
                 </AppButton>
             </div>
+            <div className={cls['switcher-container']}>
                 <LanguageSwitcher />
-            <div className={cls['theme-switcher-container']}>
                 <ThemeSwitcher />
             </div>
         </aside>
