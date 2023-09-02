@@ -15,8 +15,6 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({className}) => {
         const lng = i18n.language === 'en' ? 'ru' : 'en';
         i18n.changeLanguage(lng);
     };
-
-    const upperCasedName = t('Language Toggle Text').toUpperCase()
     
     return (
         <AppButton 
@@ -24,7 +22,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({className}) => {
             theme='clear-inversed'
             onClick={toggleLanguage}
         >
-            {upperCasedName}
+            {t('Language Toggle Text')}
         </AppButton>
     );
 };
