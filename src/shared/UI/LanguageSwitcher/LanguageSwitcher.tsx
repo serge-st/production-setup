@@ -9,7 +9,7 @@ interface LanguageSwitcherProps {
 }
 
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({className}) => {
-    const { t, i18n } = useTranslation('common');
+    const { t, i18n } = useTranslation();
 
     const toggleLanguage = () => {
         const lng = i18n.language === 'en' ? 'ru' : 'en';
@@ -22,7 +22,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({className}) => {
             theme='clear-inversed'
             onClick={toggleLanguage}
         >
-            {t('Language Toggle Text')}
+            {t('Language toggle text')}
         </AppButton>
     );
 };
