@@ -8,9 +8,6 @@ import { Sidebar } from 'widgets/Sidebar';
 export const App: FC = () => {
     const {theme} = useTheme();
 
-    // !! JUST FOR TESTING PURPOSES
-    console.log(Math.random(), 'App render')
-
     return (
         <div className={classNames('App', {}, [theme])}>
             <Suspense fallback=''>
