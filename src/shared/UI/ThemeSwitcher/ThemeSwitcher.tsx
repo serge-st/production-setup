@@ -10,20 +10,20 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({className}) => {
-    const {theme, toggleTheme} = useTheme();
+	const {theme, toggleTheme} = useTheme();
 
-    return (
-        <AppButton 
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
-            type='button'
-            onClick={() => toggleTheme()}
-        >
-            <div className={classNames(cls['theme-icon-container'], {}, [cls[theme]])}>
-                {theme === 'regular'
-                    ? <MoonIcon />
-                    : <SunIcon />
-                }
-            </div>
-        </AppButton>
-    );
+	return (
+		<AppButton 
+			className={classNames(cls.ThemeSwitcher, {}, [className])}
+			type='button'
+			onClick={() => toggleTheme()}
+		>
+			<div className={classNames(cls['theme-icon-container'], {}, [cls[theme]])}>
+				{theme === 'regular'
+					? <MoonIcon />
+					: <SunIcon />
+				}
+			</div>
+		</AppButton>
+	);
 };

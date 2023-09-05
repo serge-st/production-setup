@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './LanguageSwitcher.module.scss';
-import { AppButton } from 'shared/UI'
+import { AppButton } from 'shared/UI';
 import { useTranslation } from 'react-i18next';
 
 interface LanguageSwitcherProps {
