@@ -15,7 +15,7 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
 
     const handleClick = () => {
         setIsClosed(state => !state);
-    }
+    };
 
     return (
         <aside className={classNames(cls.Sidebar, {[cls.collapsed]: isClosed}, [className])}>

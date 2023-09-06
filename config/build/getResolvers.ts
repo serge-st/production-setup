@@ -6,5 +6,5 @@ export function getResolvers({ paths }: BuildOptions): ResolveOptions {
         extensions: ['.tsx', '.ts', '.js'],
         modules: [paths.src, 'node_modules'],
         preferAbsolute: true,
-    }
+    };
 }

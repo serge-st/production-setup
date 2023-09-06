@@ -5,7 +5,7 @@ import cls from './AppButton.module.scss';
 const APP_BUTTON_THEME = {
     CLEAR: 'clear',
     CLEAR_INVERSED: 'clear-inversed',
-} as const
+} as const;
 
 export type AppButtonTheme = ObjectValues<typeof APP_BUTTON_THEME>;
 

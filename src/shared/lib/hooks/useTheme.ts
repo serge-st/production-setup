@@ -15,16 +15,16 @@ export const useTheme = (): UseThemeResult => {
         const newTheme: Theme = theme === 'regular' ? 'dark' : 'regular';
         setTheme(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-    }
+    };
 
     const setThemeWithStorage = (themeName: Theme) => {
         setTheme(themeName);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeName);
-    }
+    };
 
     return {
         theme,
         toggleTheme,
         setTheme: setThemeWithStorage,
-    }
-}
+    };
+};

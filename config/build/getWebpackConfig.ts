@@ -23,5 +23,5 @@ export function getWebpackConfig(buildOptions: BuildOptions): Configuration {
         plugins: getPlugins(buildOptions),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? getDevServerConfig(buildOptions) : undefined,
-    }
+    };
 }

@@ -11,7 +11,7 @@ interface AppLinkProps extends LinkProps {
 const APP_LINK_THEME = {
     PRIMARY: 'primary',
     UNDERLINED: 'underlined',
-} as const
+} as const;
 
 export type AppLinkTheme = ObjectValues<typeof APP_LINK_THEME>;
 

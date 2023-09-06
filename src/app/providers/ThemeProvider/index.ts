@@ -8,4 +8,4 @@ export {
     ThemeContext,
     Theme,
     LOCAL_STORAGE_THEME_KEY,
-}
+};

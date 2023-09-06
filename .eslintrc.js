@@ -47,6 +47,9 @@ module.exports = {
         'semi': [
             'error',
             'always'
-        ]
+        ],
+        'no-unused-vars': [
+            'error', { 'varsIgnorePattern': '^_[a-zA-Z_$][a-zA-Z0-9_$]*?$' }
+        ],
     }
 };

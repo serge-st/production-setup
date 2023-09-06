@@ -12,18 +12,18 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
                 loader: 'file-loader',
             },
         ],
-    }
+    };
 
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-    }
+    };
 
     const typeScriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-    }
+    };
 
     const cssLoader = {
         test: /\.s?[ac]ss$/i,
@@ -49,7 +49,7 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
             },
             'sass-loader',
         ],
-    }
+    };
 
     return [
         fileLoader,
