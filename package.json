@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve --env PORT=3000 --env DEV_SERVER=true",
     "build:dev": "webpack --env MODE=development",
-    "build:prod": "webpack --env MODE=production"
+    "build:prod": "webpack --env MODE=production",
+    "lint:ts": "npx eslint . --ext .ts --ext .tsx",
+    "lint:ts-fix": "npx eslint . --ext .ts --ext .tsx --fix"
   },
   "repository": {
     "type": "git",
