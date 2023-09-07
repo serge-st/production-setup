@@ -1,7 +1,7 @@
 module.exports = {
     'env': {
         'browser': true,
-        'es2021': true
+        'es2021': true,
     },
     'extends': [
         'eslint:recommended',
@@ -9,47 +9,55 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
     ],
+    'settings': {
+        'react': {
+            'version': 'detect',
+        },
+    },
     'overrides': [
         {
             'env': {
-                'node': true
+                'node': true,
             },
             'files': [
-                '.eslintrc.{js,cjs}'
+                '.eslintrc.{js,cjs}',
             ],
             'parserOptions': {
-                'sourceType': 'script'
-            }
-        }
+                'sourceType': 'script',
+            },
+        },
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
-        'sourceType': 'module'
+        'sourceType': 'module',
     },
     'plugins': [
         '@typescript-eslint',
-        'react'
+        'react',
     ],
     'rules': {
         'indent': [
             'error',
-            4
+            4,
         ],
         'linebreak-style': [
             'error',
-            'unix'
+            'unix',
         ],
         'quotes': [
             'error',
-            'single'
+            'single',
         ],
         'semi': [
             'error',
-            'always'
+            'always',
         ],
-        'no-unused-vars': [
-            'error', { 'varsIgnorePattern': '^_[a-zA-Z_$][a-zA-Z0-9_$]*?$' }
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'error', { 'argsIgnorePattern': '^_[a-zA-Z_$][a-zA-Z0-9_$]*?$' },
         ],
-    }
+        'comma-dangle': ['error', 'always-multiline'],
+        'eol-last': ['error', 'always'],
+    },
 };
