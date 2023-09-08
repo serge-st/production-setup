@@ -1,12 +1,12 @@
 .Sidebar {
-    height: calc(100vh - var(--nav-height));
-    width: var(--sidebar-width);
-    background-color: var(--primary-color);
-    padding: var(--padding-gap-size-desk);
-    transition: width var(--sidebar-transition-time);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--nav-height));
+    padding: var(--padding-gap-size-desk);
+    background-color: var(--primary-color);
+    transition: width var(--sidebar-transition-time);
 }
 
 .collapsed {
@@ -14,14 +14,14 @@
 }
 
 .sidebar-toggle-container {
-    height: var(--font-line-height-m);
     display: flex;
     justify-content: flex-end;
+    height: var(--font-line-height-m);
 }
 
 .arrow-button {
-    transform: scale(-1, 1);
     transition: transform var(--sidebar-transition-time) linear;
+    transform: scale(-1, 1);
 }
 
 .Sidebar.collapsed .arrow-button {
@@ -38,13 +38,13 @@
 }
 
 .switcher-container {
-    width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    transform: scale(1, 1);
+    width: 100%;
     transition: transform var(--sidebar-transition-time) linear;
+    transform: scale(1, 1);
 }
 
 .Sidebar.collapsed .switcher-container {

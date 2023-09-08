@@ -1,10 +1,10 @@
 .Navbar {
-    width: 100%;
-    height: var(--nav-height);
     display: flex;
     align-items: center;
-    padding: 0 var(--padding-gap-size-desk);
     justify-content: flex-end;
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0 var(--padding-gap-size-desk);
     background-color: var(--primary-color);
 }
 
