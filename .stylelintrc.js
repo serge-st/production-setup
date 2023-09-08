@@ -1,5 +1,5 @@
 module.exports = {
-    'extends': 'stylelint-config-standard-scss',
+    'extends': ['stylelint-config-recess-order', 'stylelint-config-standard-scss'],
     'rules': {
         'selector-class-pattern': null,
         'property-no-vendor-prefix': null,
