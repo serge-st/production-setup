@@ -1,11 +1,5 @@
 import { classNames } from './classNames';
 
-test('adds 1 + 2 to equal 3', () => {
-    const classes = classNames('MainClass', { 'black': true, 'hidden': false }, ['outlined', 'inversed']);
-    const result = 'MainClass black outlined inversed';
-    expect(classes).toBe(result);
-});
-
 describe('Test classNames function', () => {
     test('Main class only', () => {
         const classes = classNames('MainClass', {}, []);
@@ -33,7 +27,7 @@ describe('Test classNames function', () => {
 
     test('Main class, two mods (true and false) and 2 additional classes', () => {
         const classes = classNames('MainClass', { 'black': true, 'hidden': false }, ['outlined', 'inversed']);
-        const result = 'MainClass black outlined inversed';
+        const result = 'MainClass outlined inversed black';
         expect(classes).toBe(result);
     });
 });

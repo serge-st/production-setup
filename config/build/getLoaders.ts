@@ -52,7 +52,7 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
     };
 
     const babelLoader = {
-        test: /\.(?:js|mjs|cjs)$/,
+        test: /\.(?:js|mjs|cjs|tsx?)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
@@ -67,8 +67,8 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
+        babelLoader,
         typeScriptLoader,
         cssLoader,
-        babelLoader,
     ];
 }
