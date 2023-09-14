@@ -1,0 +1,14 @@
+.NotFoundPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font: var(--font-l);
+}
+
+.highlight-red {
+    font-size: var(--font-line-height-l);
+    font-weight: 700;
+    color: var(--error-color);
+    letter-spacing: 1px
+}
