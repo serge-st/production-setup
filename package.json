@@ -10,7 +10,7 @@
     "lint:ts": "npx eslint . --ext .ts --ext .tsx",
     "lint:ts-fix": "npx eslint . --ext .ts --ext .tsx --fix",
     "lint:css": "npx stylelint \"**/*.scss\"",
-    "test": "jest"
+    "test": "jest --config=./config/jest/jest.config.ts"
   },
   "repository": {
     "type": "git",
