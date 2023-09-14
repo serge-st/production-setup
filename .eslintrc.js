@@ -59,5 +59,6 @@ module.exports = {
         ],
         'comma-dangle': ['error', 'always-multiline'],
         'eol-last': ['error', 'always'],
+        '@typescript-eslint/ban-ts-comment': ['error',  { 'ts-expect-error': 'allow-with-description' }],
     },
 };
