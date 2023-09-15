@@ -8,7 +8,7 @@ export const AppRouter = () => {
         <Suspense fallback={<PageLoader />}>
             <Routes>
                 {routeConfig.map(({path, element}) => {
-                    return <Route key={path} path={path} element={<main className='page-wrapper'>{element}</main>} />;
+                    return <Route key={path} path={path} element={element} />;
                 })}
             </Routes>
         </Suspense>
