@@ -4,7 +4,7 @@ import { AppRouter } from 'app/providers/AppRouter';
 import { classNames, useTheme } from 'shared/lib';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { PageWrapper } from 'widgets/PageWrapper';
+import { PageWrapper } from 'pages/PageWrapper';
 
 export const App: FC = () => {
     const {theme} = useTheme();
