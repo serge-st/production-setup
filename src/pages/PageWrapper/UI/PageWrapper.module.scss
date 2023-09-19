@@ -2,3 +2,10 @@
     flex: 1;
 	padding: var(--padding-gap-size-desk);
 }
+
+// TODO switch to mobile first:
+@media screen and (max-width: 600px) {
+    .PageWrapper {
+        flex: 0 0 calc(100vw - var(--sidebar-width-collapsed));
+    }
+}
