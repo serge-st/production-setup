@@ -4,6 +4,7 @@ module.exports = {
         'selector-class-pattern': null,
         'property-no-vendor-prefix': null,
         'scss/at-import-partial-extension': 'always',
+        'media-feature-range-notation': 'prefix',
     }
 }
     
