@@ -30,4 +30,10 @@ describe('Test classNames function', () => {
         const result = 'MainClass outlined inversed black';
         expect(classes).toBe(result);
     });
+
+    test('No value provided', () => {
+        const classes = classNames('', {}, []);
+        const result = '';
+        expect(classes).toBe(result);
+    });
 });
