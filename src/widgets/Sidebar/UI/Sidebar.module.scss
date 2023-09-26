@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: var(--sidebar-width);
-    height: calc(100vh - var(--nav-height));
+    height: 100%;
     padding: var(--padding-gap-size-desk);
     background-color: var(--primary-color);
     transition: width var(--sidebar-transition-time);

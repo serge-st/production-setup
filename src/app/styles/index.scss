@@ -5,15 +5,19 @@
 
 .App {
 	min-height: 100vh;
+	min-height: 100dvh;
 	font: var(--font-m);
 	color: var(--primary-color);
 	background-color: var(--bg-color);
+	transition: min-height 100ms ease-in-out;
 }
 
 .main-content-wrapper {
 	position: relative;
 	display: flex;
 	height: calc(100vh - var(--nav-height));
+	height: calc(100dvh - var(--nav-height));
+	transition: height 200ms ease-in-out;
 }
 
 // TODO switch to mobile first:
