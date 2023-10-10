@@ -14,11 +14,11 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({className}) => {
 
     return (
         <AppButton 
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
+            className={classNames(cls.ThemeSwitcher, {}, [cls[theme], className])}
             type='button'
             onClick={() => toggleTheme()}
         >
-            <div className={classNames(cls['theme-icon-container'], {}, [cls[theme]])}>
+            <div className={classNames(cls['theme-icon-container'], {}, [])}>
                 {theme === 'regular'
                     ? <MoonIcon />
                     : <SunIcon />
