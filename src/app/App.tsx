@@ -8,7 +8,7 @@ import { PageWrapper } from 'pages/PageWrapper';
 
 export const App: FC = () => {
     const {theme} = useTheme();
-
+    
     return (
         <div className={classNames('App', {}, [theme])}>
             <Suspense fallback=''>
