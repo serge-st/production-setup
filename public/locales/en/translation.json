@@ -2,5 +2,7 @@
   "Language toggle text": "ru",
   "Nav main page name": "Main Page",
   "Nav about page name": "About Page",
-  "Page not found": "Something's Wrong 😬"
+  "Page not found": "Not sure what you are looking for... 😬",
+  "Page Error": "Ooops, something went wrong 😬",
+  "Reload Page": "Reload Page 🔄"
 }
