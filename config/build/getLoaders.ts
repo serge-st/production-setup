@@ -41,7 +41,7 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
                     modules: {
                         auto: (resPath: string): boolean => resPath.includes('.module.'),
                         localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:4]'
+                            ? '[local]__[hash:base64:6]'
                             : '[hash:base64:8]'
                         ,
                     },
