@@ -18,7 +18,10 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
     };
 
     return (
-        <aside className={classNames(cls.Sidebar, {[cls.collapsed]: isClosed}, [className])}>
+        <aside 
+            className={classNames(cls.Sidebar, {[cls.collapsed]: isClosed}, [className])}
+            data-testid='sidebar'
+        >
             <div className={cls['sidebar-toggle-container']}>
                 <AppButton
                     className={cls['arrow-button']}

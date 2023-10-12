@@ -21,6 +21,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({className}) => {
             className={classNames(cls.LanguageSwitcher, {}, [className])}
             theme='clear-inversed'
             onClick={toggleLanguage}
+            data-testid='language-switcher'
         >
             {t('Language toggle text')}
         </AppButton>
