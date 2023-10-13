@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { AppButton } from './AppButton';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { PrimaryBgColorElmDecorator } from 'shared/config/storybook/decorators/PrimaryBgColorElmDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -8,7 +9,7 @@ const meta = {
     component: AppButton,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-        layout: 'centered',
+        layout: 'fullscreen',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
@@ -20,12 +21,47 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const Clear: Story = {
     args: {
         children: 'Test Button',
+        theme: 'clear',
     },
 };
 
+export const ClearInversed: Story = {
+    args: {
+        children: 'Test Button',
+        theme: 'clear-inversed',
+    },
+    decorators: [
+        PrimaryBgColorElmDecorator(),
+    ]
+};
+
+export const ClearDark: Story = {
+    args: {
+        children: 'Test Button',
+        theme: 'clear',
+    },
+    parameters: {
+        overrideTheme: 'dark',
+    },
+    decorators: [
+    ],
+};
+
+export const ClearDarkInversed: Story = {
+    args: {
+        children: 'Test Button',
+        theme: 'clear-inversed',
+    },
+    parameters: {
+        overrideTheme: 'dark',
+    },
+    decorators: [
+        PrimaryBgColorElmDecorator(),
+    ],
+};
 
 
 // import type { Meta, StoryObj } from '@storybook/react';
