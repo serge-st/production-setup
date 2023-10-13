@@ -8,6 +8,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
+        'plugin:i18next/recommended',
     ],
     'settings': {
         'react': {
@@ -35,6 +36,7 @@ module.exports = {
     'plugins': [
         '@typescript-eslint',
         'react',
+        'i18next',
     ],
     'rules': {
         'indent': [
