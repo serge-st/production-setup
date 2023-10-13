@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 
-interface BuildPaths {
+export interface BuildPaths {
     entry: string;
     output: string;
     htmlTemplate: string;

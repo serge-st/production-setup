@@ -1,6 +1,6 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types/config';
+import { getCssLoader } from './loaders/getCssLoader';
 
 export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
     const { isDev, isDevServer } = buildOptions;
@@ -25,31 +25,7 @@ export function getLoaders(buildOptions: BuildOptions): RuleSetRule[] {
         exclude: /node_modules/,
     };
 
-    const cssLoader = {
-        test: /\.s?[ac]ss$/i,
-        use: [
-            isDevServer ? 'style-loader' :
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        esModule: false,
-                    },
-                },
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string): boolean => resPath.includes('.module.'),
-                        localIdentName: isDev
-                            ? '[local]__[hash:base64:6]'
-                            : '[hash:base64:8]'
-                        ,
-                    },
-                },
-            },
-            'sass-loader',
-        ],
-    };
+    const cssLoader = getCssLoader(isDev, isDevServer);
 
     const babelLoader = {
         test: /\.(?:js|mjs|cjs|tsx?)$/,
