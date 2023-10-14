@@ -11,12 +11,21 @@ const preview: Preview = {
       },
     },
   },
+  globalTypes: {
+    theme: {
+      defaultValue: 'regular',
+      toolbar: {
+        items: [
+          { value: 'regular', icon: 'circlehollow', title: 'Regular Theme' },
+          { value: 'dark', icon: 'circle', title: 'Dark Theme' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
   decorators: [
     ThemeDecorator(),
   ],
 };
-
-
-
 
 export default preview;

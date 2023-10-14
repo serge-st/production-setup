@@ -38,31 +38,6 @@ export const ClearInversed: Story = {
     ]
 };
 
-export const ClearDark: Story = {
-    args: {
-        children: 'Test Button',
-        theme: 'clear',
-    },
-    parameters: {
-        overrideTheme: 'dark',
-    },
-    decorators: [
-    ],
-};
-
-export const ClearDarkInversed: Story = {
-    args: {
-        children: 'Test Button',
-        theme: 'clear-inversed',
-    },
-    parameters: {
-        overrideTheme: 'dark',
-    },
-    decorators: [
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
 
 // import type { Meta, StoryObj } from '@storybook/react';
 
