@@ -1,5 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
+import { getThemeType } from './globals/getThemeType';
+import { getLocaleType } from './globals/getLocaleType';
 
 const preview: Preview = {
   parameters: {
@@ -12,29 +14,8 @@ const preview: Preview = {
     },
   },
   globalTypes: {
-    theme: {
-      defaultValue: 'regular',
-      toolbar: {
-        items: [
-          { value: 'regular', icon: 'circlehollow', title: 'Regular Theme' },
-          { value: 'dark', icon: 'circle', title: 'Dark Theme' },
-        ],
-        dynamicTitle: true,
-      },
-    },
-    locale: {
-      name: 'Locale',
-      description: 'Internationalization locale',
-      defaultValue: 'en',
-      toolbar: {
-        icon: 'globe',
-        items: [
-          { value: 'en', title: 'English' },
-          { value: 'ru', title: 'Russian' },
-        ],
-        dynamicTitle: true,
-      },
-    },
+    theme: getThemeType(),
+    locale: getLocaleType(),
   },
   decorators: [
     ThemeDecorator(),
