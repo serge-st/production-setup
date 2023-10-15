@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Sidebar } from './Sidebar';
 import { MainContentWrapperDecorator } from 'shared/config/storybook/decorators/MainContentWrapperDecorator';
+import { TranslationsDecorator } from 'shared/config/storybook/decorators/TranslationsDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -22,5 +23,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {},
-    decorators: [MainContentWrapperDecorator()],
+    decorators: [
+        MainContentWrapperDecorator(),
+        TranslationsDecorator(),
+    ],
 };
