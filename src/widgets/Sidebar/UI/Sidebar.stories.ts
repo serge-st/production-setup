@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Sidebar } from './Sidebar';
+import { MainContentWrapperDecorator } from 'shared/config/storybook/decorators/MainContentWrapperDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -8,7 +9,7 @@ const meta = {
     component: Sidebar,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-        // layout: 'fullscreen',
+        layout: 'fullscreen',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
@@ -21,4 +22,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {},
+    decorators: [MainContentWrapperDecorator()],
 };
