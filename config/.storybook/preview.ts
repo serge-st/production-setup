@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { getThemeType } from './globals/getThemeType';
 import { getLocaleType } from './globals/getLocaleType';
+import { withRouter } from 'storybook-addon-react-router-v6';
 
 const preview: Preview = {
   parameters: {
@@ -18,6 +19,7 @@ const preview: Preview = {
     locale: getLocaleType(),
   },
   decorators: [
+    withRouter,
     ThemeDecorator(),
   ],
 };
