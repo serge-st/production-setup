@@ -1,7 +1,7 @@
 {
   "Language toggle text": "ru",
-  "Nav main page name": "Main Page",
-  "Nav about page name": "About Page",
+  "Nav route name /": "Main Page",
+  "Nav route name /about": "About Page",
   "Page not found": "Not sure what you are looking for... 😬",
   "Page Error": "Ooops, something went wrong 😬",
   "Reload Page": "Reload Page 🔄"
