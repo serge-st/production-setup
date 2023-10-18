@@ -11,6 +11,6 @@ export function ThemeDecorator() {
                     <Story />
                 </div>
             </ThemeProvider>
-        )
-    }
+        );
+    };
 }

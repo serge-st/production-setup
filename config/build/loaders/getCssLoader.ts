@@ -28,4 +28,4 @@ export const getCssLoader = (isDev: BuildOptions['isDev'], isDevServer: BuildOpt
             'sass-loader',
         ],
     };
-}
+};

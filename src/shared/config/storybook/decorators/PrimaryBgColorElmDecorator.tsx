@@ -4,11 +4,11 @@ export function PrimaryBgColorElmDecorator() {
     return (Story: StoryFn) => (
         <div 
             style={{ 
-                backgroundColor: `var(--primary-color)`,
+                backgroundColor: 'var(--primary-color)',
                 padding: '16px 24px',
             }}
         >
             <Story />
         </div>
-    )
+    );
 }

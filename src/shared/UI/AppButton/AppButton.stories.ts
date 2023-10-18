@@ -34,5 +34,5 @@ export const ClearInversed: Story = {
     },
     decorators: [
         PrimaryBgColorElmDecorator(),
-    ]
+    ],
 };

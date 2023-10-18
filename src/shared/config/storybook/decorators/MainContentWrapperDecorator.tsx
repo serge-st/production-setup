@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react'
+import { StoryFn } from '@storybook/react';
 
 export function MainContentWrapperDecorator() {
     return (Story: StoryFn) => {
@@ -12,6 +12,6 @@ export function MainContentWrapperDecorator() {
                 <Story />
             </div>
                
-        )
-    }
+        );
+    };
 }

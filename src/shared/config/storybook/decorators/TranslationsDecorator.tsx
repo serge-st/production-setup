@@ -6,9 +6,8 @@ import i18n from 'shared/config/i18n/i18nForTests';
 export function TranslationsDecorator() {
     return (Story: StoryFn, context: StoryContext) => {
         const { locale } = context.globals;
-
         useEffect(() => {
-          i18n.changeLanguage(locale);
+            i18n.changeLanguage(locale);
         }, [locale]);
 
         return (
@@ -17,6 +16,6 @@ export function TranslationsDecorator() {
                     <Story />
                 </I18nextProvider>
             </Suspense>
-        )
-    }
+        );
+    };
 }

@@ -12,24 +12,23 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({className}) => {
     const { t } = useTranslation();
-    let location = useLocation();
-    const [activePath, setActivePath] = useState<string | null>(null)
-    const appRoutes = routeConfig.filter(({path}) => path !== '*')
+    const location = useLocation();
+    const [activePath, setActivePath] = useState<string | null>(null);
+    const appRoutes = routeConfig.filter(({path}) => path !== '*');
 
     const handleClick = (path: string): void => {
-        setActivePath(path)
-        console.log(location)
-    }
+        setActivePath(path);
+    };
 
     useEffect(() => {
         setActivePath(location.pathname);
-    }, [activePath])
+    }, [activePath]);
 
     return (
         <nav className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 {appRoutes.map(({path}) => {
-                    const name = `Nav route name ${path}`
+                    const name = `Nav route name ${path}`;
 
                     return (
                         <AppLink 
@@ -40,7 +39,7 @@ export const Navbar: FC<NavbarProps> = ({className}) => {
                         >
                             {t(name)}
                         </AppLink>
-                    )
+                    );
                 })}
             </div>
         </nav>

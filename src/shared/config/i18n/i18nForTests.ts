@@ -16,13 +16,13 @@ i18n
             en: {
                 translation: {
                     ...enTranslation,
-                }
+                },
             },
             ru: {
                 translation: {
                     ...ruTranslation,
-                }
-            }
+                },
+            },
         },
     });
 
