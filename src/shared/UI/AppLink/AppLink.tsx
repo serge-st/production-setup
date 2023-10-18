@@ -9,14 +9,14 @@ interface AppLinkProps extends LinkProps {
 }
 
 const APP_LINK_THEME = {
-    PRIMARY: 'primary',
-    UNDERLINED: 'underlined',
+    CLEAR_INVERSED: 'clear-inversed',
+    CLEAR_INVERSED_UNDERLINED: 'clear-inversed-underlined',
 } as const;
 
 export type AppLinkTheme = ObjectValues<typeof APP_LINK_THEME>;
 
 export const AppLink: FC<AppLinkProps> = (props) => {
-    const {to, className, children, theme = 'primary', ...otherProps} = props;
+    const {to, className, children, theme = 'clear-inversed', ...otherProps} = props;
 
     return (
         <Link
