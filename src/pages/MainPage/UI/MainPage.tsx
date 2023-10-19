@@ -7,7 +7,7 @@ const MainPage: FC = () => {
     return (
         <div>
             <h1>{t('Title')}</h1>
-            <p>{t('Body')}</p>
+            <p style={{color: 'var(--secondary-color)'}}>{t('Body')}</p>
         </div>
     );
 };
