@@ -4,6 +4,7 @@ import path from 'path';
 import { getCssLoader } from "../build/loaders/getCssLoader";
 import { getSvgLoader } from "../build/loaders/getSvgLoader";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -20,12 +21,21 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  async webpackFinal(config, options) {
+  async webpackFinal(config) {
     const srcPath: BuildPaths['src'] = path.resolve(__dirname, '..', '..', 'src');
 
-    // TODO: remove errors
-    const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
-    fileLoaderRule.exclude = /\.svg$/;
+    if (config.module?.rules) {
+      const fileLoaderRule = config.module?.rules.find(rule => {
+        if (rule && typeof rule === 'object' && 'test' in rule && rule.test instanceof RegExp) {
+          return rule.test && rule.test.test('.svg');
+        }
+        return undefined
+      }) as RuleSetRule | undefined;
+
+      if (fileLoaderRule) {
+        fileLoaderRule.exclude = /\.svg$/;
+      }
+    }
 
     config.resolve?.modules?.push(srcPath);
     config.module?.rules?.push(getSvgLoader());
