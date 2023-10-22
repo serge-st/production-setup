@@ -1,0 +1,38 @@
+{
+    "en": {
+        "translation": {
+            "Language toggle text": "ru",
+            "Nav route name /": "Main Page",
+            "Nav route name /about": "About Page",
+            "Page not found": "Not sure what you are looking for... 😬",
+            "Page Error": "Ooops, something went wrong 😬",
+            "Reload Page": "Reload Page 🔄"
+        },
+        "pages/about": {
+            "Title": "About Page",
+            "Body": "Flizzle snazzle about gloxum, wibber zorble borp mibber florb blip wibble, quizzle sprong zarfle mib."
+        },
+        "pages/main": {
+            "Title": "Main Page",
+            "Body": "Zibber blazzle Main page flurgle, snorfle dribber zorp wobble glibber, squizzle frizzle yarble zib."
+        }
+    },
+    "ru": {
+        "translation": {
+            "Language toggle text": "en",
+            "Nav route name /": "Главная Страница",
+            "Nav route name /about": "О Сайте",
+            "Page not found": "Хммм, не уверен что именно ты ищешь... 😬",
+            "Page Error": "Ой, что-то пошло не так 😬",
+            "Reload Page": "Перезагрузить страницу 🔄"
+        },
+        "pages/about": {
+            "Title": "О Сайте",
+            "Body": "Флорб блип о странице заргл, миббер виббл кварц, флиззле сназзле воплер морф."
+        },
+        "pages/main": {
+            "Title": "Главная Страница",
+            "Body": "Зорбле блорф Главная страница флиббер, снорфле дриббер жорп воббле глиббер, сквиззле фриззле ярбле зиб."
+        }
+    }
+}

@@ -5,6 +5,7 @@ import { getCssLoader } from "../build/loaders/getCssLoader";
 import { getSvgLoader } from "../build/loaders/getSvgLoader";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
+import ExtractTranslations from './plugins/ExtractTranslations';
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -40,7 +41,7 @@ const config: StorybookConfig = {
     config.resolve?.modules?.push(srcPath);
     config.module?.rules?.push(getSvgLoader());
     config.module?.rules?.push(getCssLoader(true, false));
-    config.plugins?.push(new MiniCssExtractPlugin());
+    config.plugins?.push(new ExtractTranslations(), new MiniCssExtractPlugin());
     return config;
   },
 };
