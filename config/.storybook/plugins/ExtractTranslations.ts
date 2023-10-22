@@ -1,6 +1,7 @@
+import { Compilation, Compiler } from 'webpack';
+import { Resource, ResourceKey } from 'i18next';
 import fs from 'fs';
 import path from 'path';
-import { Resource, ResourceKey } from 'i18next';
 
 class ExtractTranslations {
     private getJSONData = (filePath: string): ResourceKey => {
@@ -12,28 +13,38 @@ class ExtractTranslations {
         }
     };
 
+    private fileDependencies = new Set<string>();
+
     private getResources = (): Resource => {
         const resources: Resource = {};
+        // path where translations are stored
         const localesDir = path.resolve(__dirname, '..', '..', '..', 'public', 'locales');
 
         if (!fs.existsSync(localesDir)) throw new Error(`${localesDir} does not exist`);
 
         try {
+            // locale folders (en, ru)
             fs.readdirSync(localesDir).forEach((languageKey) => {
                 const currentLanguageDir = path.resolve(localesDir, languageKey);
                 if (!fs.existsSync(currentLanguageDir)) throw new Error(`${currentLanguageDir} does not exist`);
 
                 const mainTranslationFile = path.resolve(currentLanguageDir, 'translation.json');
+                // add file to Webpack watch list
+                this.fileDependencies.add(mainTranslationFile);
                 const translation = this.getJSONData(mainTranslationFile);
                 resources[languageKey] = {
                     translation,
                 };
 
+                // page translations directory
                 const currentPagesDir = path.resolve(currentLanguageDir, 'pages');
                 if (!fs.existsSync(currentPagesDir)) throw new Error(`${currentPagesDir} does not exist`);
 
+                // iterate over each page translation file
                 fs.readdirSync(currentPagesDir).forEach((page) => {
                     const file = path.resolve(currentPagesDir, page);
+                    // add file to Webpack watch list
+                    this.fileDependencies.add(file);
                     const key = `pages/${path.parse(page).name}`;
                     const data = this.getJSONData(file);
                     resources[languageKey][key] = data;
@@ -62,14 +73,23 @@ class ExtractTranslations {
 
     private isInitialLaunch = true;
 
-    apply(compiler) {
+    apply(compiler: Compiler) {
         // to prevent crashes in case '../translations.json' doesn't exist on initial launch of storybook
         compiler.hooks.environment.tap('ExtractTranslations', () => {
             if (this.isInitialLaunch) {
                 this.writeResources(this.getResources());
+
                 this.isInitialLaunch = false;
             }
         });
+
+        // to ensure original translation files are watched by Webpack
+        compiler.hooks.thisCompilation.tap('ExtractTranslations', (compilation: Compilation) => {
+            for (const file of this.fileDependencies) {
+                compilation.fileDependencies.add(file);
+            }
+        });
+
         // to ensure on every save translations are re-checked and updated
         compiler.hooks.done.tap('ExtractTranslations', () => {
             if (!this.isInitialLaunch) {
