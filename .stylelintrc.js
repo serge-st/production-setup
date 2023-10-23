@@ -3,6 +3,7 @@ module.exports = {
     'rules': {
         'selector-class-pattern': null,
         'property-no-vendor-prefix': null,
+        'value-no-vendor-prefix': null,
         'scss/at-import-partial-extension': 'always',
         'media-feature-range-notation': 'prefix',
     }
