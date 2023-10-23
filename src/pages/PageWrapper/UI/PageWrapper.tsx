@@ -7,9 +7,9 @@ interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const PageWrapper: FC<PageWrapperProps> = (props) => {
-    const { className, children } = props;
+    const { className, children, ...misc } = props;
     return (
-        <main className={classNames(cls.PageWrapper, {}, [className])}>
+        <main className={classNames(cls.PageWrapper, {}, [className])} {...misc}>
             {children}
         </main>
     );
