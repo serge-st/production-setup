@@ -1,0 +1,21 @@
+name: Lint, Test and Build Production App Version
+run-name: Checking ${{ github.actor }} code and creating a production build
+on: [push, pull_request]
+jobs:
+  Lint-Test-Build_Prod:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.18.2'
+      - name: Install app dependencies
+        run: npm ci
+      - name: Lint CSS
+        run: npm run lint:css
+      - name: Lint TS
+        run: npm run lint:ts
+      - name: Run Unit Tests
+        run: npm run test:unit
+      - run: echo "This job's status is ${{ job.status }}."
+      
