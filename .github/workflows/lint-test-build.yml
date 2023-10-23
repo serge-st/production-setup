@@ -9,13 +9,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.18.2'
-      - name: Install app dependencies
+      - name: Install App Dependencies
         run: npm ci
+      # - name: Build Production App Version
+        # run: npm run build:prod # TODO: exclude BundleAnalyzerPlugin
       - name: Lint CSS
         run: npm run lint:css
       - name: Lint TS
         run: npm run lint:ts
       - name: Run Unit Tests
         run: npm run test:unit
-      - run: echo "This job's status is ${{ job.status }}."
-      
+      - name: Check Job's Status
+        run: echo "This job's status is ${{ job.status }}."
