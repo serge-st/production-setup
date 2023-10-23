@@ -8,8 +8,6 @@ interface LoaderProps {
 
 export const Loader: FC<LoaderProps> = ({className}) => {
     return (
-        <span className={classNames(cls.Loader, {}, [className])}>
-
-        </span>
+        <span className={classNames(cls.Loader, {}, [className])}></span>
     );
 };
