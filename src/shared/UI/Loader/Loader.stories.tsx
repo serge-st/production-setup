@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 };
 
-export const WithPrimaryBackground: Story = {
+export const OnPrimaryBackground: Story = {
     decorators: [
         PrimaryBgColorElmDecorator(),
     ],
