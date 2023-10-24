@@ -10,8 +10,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.18.2'
-          registry-url: 'https://npm.pkg.github.com/'
-          scope: 'serge-st'
       - name: Install App Dependencies
         run: npm ci
       - name: Build Production App Version
@@ -22,6 +20,18 @@ jobs:
         run: npm run lint:ts
       - name: Run Unit Tests
         run: npm run test:unit
+  Screenshot_Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.18.2'
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: 'serge-st'
+      - name: Install App Dependencies
+        run: npm ci
       - name: Run Screenshot Tests
         run: npm run test:screenshot:ci
       - name: Archive Screenshots (if "Run Screenshot Tests" failed)
@@ -30,5 +40,3 @@ jobs:
         with:
           name: design-system
           path: .loki
-      - name: Check Job's Status
-        run: echo "This job's status is ${{ job.status }}."
