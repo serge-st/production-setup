@@ -27,10 +27,29 @@ export const Clear: Story = {
     },
 };
 
+export const ClearDisabled: Story = {
+    args: {
+        children: 'Test Disabled',
+        theme: 'clear',
+        disabled: true,
+    },
+};
+
 export const ClearInversed: Story = {
     args: {
         children: 'Test Button',
         theme: 'clear-inversed',
+    },
+    decorators: [
+        PrimaryBgColorElmDecorator(),
+    ],
+};
+
+export const ClearInversedDisabled: Story = {
+    args: {
+        children: 'Test Disabled',
+        theme: 'clear-inversed',
+        disabled: true,
     },
     decorators: [
         PrimaryBgColorElmDecorator(),

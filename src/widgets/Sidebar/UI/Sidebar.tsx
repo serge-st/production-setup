@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './Sidebar.module.scss';
-import { AppButton } from 'shared/UI';
 import RightArrow from 'shared/assets/icons/right-arrow.svg';
 import { ThemeSwitcher } from 'shared/UI';
 import { LanguageSwitcher } from 'shared/UI';
@@ -23,14 +22,13 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
             data-testid='sidebar'
         >
             <div className={cls['sidebar-toggle-container']}>
-                <AppButton
+                <button
                     className={cls['arrow-button']}
                     onClick={handleClick}
                     type='button'
-                    theme={'clear-inversed'}
                 >
                     <RightArrow />
-                </AppButton>
+                </button>
             </div>
             <div className={cls['switcher-container']}>
                 <LanguageSwitcher />

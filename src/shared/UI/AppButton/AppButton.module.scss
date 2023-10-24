@@ -1,11 +1,30 @@
 .AppButton {
     color: var(--primary-color);
+    border: 1px solid;
 }
 
 .clear {
     color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
+.clear-disabled,
 .clear-inversed {
     color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+}
+
+.clear-inversed-disabled {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.AppButton.medium {
+    padding: 8px 16px;
+    font: var(--font-m);
+}
+
+.AppButton.large {
+    padding: 8px 16px;
+    font: var(--font-l);
 }
