@@ -3,10 +3,11 @@ run-name: Checking ${{ github.actor }} code and creating a production build
 on: [push, pull_request]
 jobs:
   Lint-Test-Build_Prod:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: '18.18.2'
           registry-url: 'https://npm.pkg.github.com/'
