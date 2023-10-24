@@ -14,8 +14,8 @@ jobs:
           scope: 'serge-st'
       - name: Install App Dependencies
         run: npm ci
-      # - name: Build Production App Version
-        # run: npm run build:prod # TODO: exclude BundleAnalyzerPlugin
+      - name: Build Production App Version
+        run: npm run build:prod:ci
       - name: Lint CSS
         run: npm run lint:css
       - name: Lint TS
@@ -24,7 +24,7 @@ jobs:
         run: npm run test:unit
       - name: Run Screenshot Tests
         run: npm run test:screenshot:ci
-      - name: Archive Screenshots
+      - name: Archive Screenshots (if "Run Screenshot Tests" failed)
         if: ${{ failure() }}
         uses: actions/upload-artifact@v1
         with:

@@ -8,6 +8,7 @@ const config = (env: BuildEnv): Configuration => {
     const mode = env.MODE || 'development';
     const isDev = mode === 'development';
     const isDevServer = env.DEV_SERVER === 'true';
+    const isCIBuild = env.CI_BUILD === 'true';
 
     return getWebpackConfig({
         mode,
@@ -20,6 +21,7 @@ const config = (env: BuildEnv): Configuration => {
         devServerPort: Number(PORT),
         isDev,
         isDevServer,
+        isCIBuild,
     });
 };
 
