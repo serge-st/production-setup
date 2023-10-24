@@ -1,1 +1,0 @@
-{"version":3,"file":"shared-UI-AppButton-AppButton-stories.css","mappings":"AAAA","sources":["webpack://production-setup/./src/shared/UI/AppButton/AppButton.module.scss"],"sourcesContent":[".AppButton {\n    color: var(--primary-color);\n}\n\n.clear {\n    color: var(--primary-color);\n}\n\n.clear-inversed {\n    color: var(--tertiary-color);\n}\n"],"names":[],"sourceRoot":""}

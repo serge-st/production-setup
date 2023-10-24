@@ -12,10 +12,11 @@
     "lint:css": "npx stylelint \"**/*.scss\"",
     "test:unit": "jest --config=./config/jest/jest.config.ts",
     "test:screenshot": "npx loki test",
-    "test:screenshot:ci": "npm run storybook:build && loki --requireReference --reactUri file:./storybook-static",
+    "test:screenshot:ci": "npm run storybook:build:ci && loki --requireReference --reactUri file:./storybook-static",
     "test:screenshot:approve": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/.storybook",
-    "storybook:build": "storybook build -c ./config/.storybook"
+    "storybook:build": "storybook build -c ./config/.storybook",
+    "storybook:build:ci": "storybook build -c ./config/.storybook --quiet"
   },
   "repository": {
     "type": "git",

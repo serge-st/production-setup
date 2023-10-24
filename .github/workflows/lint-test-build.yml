@@ -22,7 +22,7 @@ jobs:
       - name: Run Unit Tests
         run: npm run test:unit
       - name: Run Screenshot Tests
-        run: test:screenshot:ci
+        run: npm run test:screenshot:ci
       - name: Archive Screenshots
         if: ${{ failure() }}
         uses: actions/upload-artifact@v1
