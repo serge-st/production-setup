@@ -3,21 +3,32 @@ run-name: Checking ${{ github.actor }} code and creating a production build
 on: [push, pull_request]
 jobs:
   Lint-Test-Build_Prod:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: '18.18.2'
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: 'serge-st'
       - name: Install App Dependencies
         run: npm ci
-      # - name: Build Production App Version
-        # run: npm run build:prod # TODO: exclude BundleAnalyzerPlugin
+      - name: Build Production App Version
+        run: npm run build:prod:ci
       - name: Lint CSS
         run: npm run lint:css
       - name: Lint TS
         run: npm run lint:ts
       - name: Run Unit Tests
         run: npm run test:unit
+      - name: Run Screenshot Tests
+        run: npm run test:screenshot:ci
+      - name: Archive Screenshots (if "Run Screenshot Tests" failed)
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: design-system
+          path: .loki
       - name: Check Job's Status
         run: echo "This job's status is ${{ job.status }}."

@@ -4,8 +4,8 @@ import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
 import { BuildOptions } from './types/config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export function getPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
-    return [
+export function getPlugins({ paths, isDev, isCIBuild }: BuildOptions): WebpackPluginInstance[] {
+    const plugins = [
         new HtmlWebpackPlugin({
             template: paths.htmlTemplate,
         }),
@@ -17,8 +17,13 @@ export function getPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstanc
         new DefinePlugin({
             __IS_DEV__: isDev,
         }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
     ];
+
+    const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+    });
+
+    if (!isCIBuild) plugins.push(bundleAnalyzerPlugin);
+
+    return plugins;
 }
