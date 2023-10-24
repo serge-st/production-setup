@@ -4,6 +4,7 @@ import cls from './Sidebar.module.scss';
 import RightArrow from 'shared/assets/icons/right-arrow.svg';
 import { ThemeSwitcher } from 'shared/UI';
 import { LanguageSwitcher } from 'shared/UI';
+// import { NavigationLinks } from 'widgets/NavigationLinks';
 
 interface SidebarProps {
     className?: string;
@@ -29,6 +30,9 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
                 >
                     <RightArrow />
                 </button>
+            </div>
+            <div className={cls['main-content-container']}>
+                {/* <NavigationLinks orientation='column' /> TODO: add when Redux is implemented */}
             </div>
             <div className={cls['switcher-container']}>
                 <LanguageSwitcher />

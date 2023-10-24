@@ -38,6 +38,10 @@
     stroke: var(--tertiary-color);
 }
 
+.main-content-container {
+    flex: 1;
+}
+
 .switcher-container {
     display: flex;
     flex-direction: row;

@@ -1,0 +1,12 @@
+.NavigationLinks {
+    display: flex;
+    gap: var(--padding-gap-size-desk);
+}
+
+.NavigationLinks.row {
+    flex-direction: row;
+}
+
+.NavigationLinks.column {
+    flex-direction: column;
+}
