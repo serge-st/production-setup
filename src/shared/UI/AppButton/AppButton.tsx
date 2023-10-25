@@ -25,11 +25,9 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const AppButton: FC<AppButtonProps> = (props) => {
     const {className, children, theme = 'clear', type = 'button', size = 'medium', disabled, ...otherProps} = props;
 
-    const finalTheme = disabled ? `${theme}-disabled` : theme;
-
     return (
         <button
-            className={classNames(cls.AppButton, {}, [className, cls[finalTheme], cls[size]])}
+            className={classNames(cls.AppButton, {[cls.disabled]: disabled}, [className, cls[theme], cls[size]])}
             type={type}
             disabled={disabled}
             {...otherProps}

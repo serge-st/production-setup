@@ -8,13 +8,13 @@
     border-color: var(--primary-color);
 }
 
-.clear-disabled,
+.clear.disabled,
 .clear-inversed {
     color: var(--tertiary-color);
     border-color: var(--tertiary-color);
 }
 
-.clear-inversed-disabled {
+.clear-inversed.disabled {
     color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
