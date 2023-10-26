@@ -2,6 +2,7 @@ import { fireEvent } from '@testing-library/react';
 import { renderWithTranslation } from 'shared/lib/renderWithTranslation';
 import { Sidebar } from 'widgets/Sidebar/UI/Sidebar';
 
+// TODO: Update Tests where Redux and NavigationLinks are added
 describe('Test Sidebar widget component', () => {
     test('Basic render', () => {
         const { container } = renderWithTranslation(<Sidebar />);
