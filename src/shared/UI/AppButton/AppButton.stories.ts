@@ -24,8 +24,18 @@ export const Clear: Story = {
     args: {
         children: 'Test Button',
         theme: 'clear',
+        size: 'medium',
     },
 };
+
+// TODO: add stories for different sizes
+// export const ClearL: Story = {
+//     args: {
+//         children: 'Test Button',
+//         theme: 'clear',
+//         size: 'large',
+//     },
+// };
 
 export const ClearDisabled: Story = {
     args: {
