@@ -1,6 +1,7 @@
 @import 'https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap';
 
 :root {
+    // Fonts:
     --font-family-main: 'Ubuntu', sans-serif;
     --font-size-m: 16px;
     --font-line-height-m: 24px;
@@ -8,12 +9,22 @@
     --font-line-height-l: 32px;
     --font-m: var(--font-size-m) / var(--font-line-height-m) var(--font-family-main);
     --font-l: var(--font-size-l) / var(--font-line-height-l) var(--font-family-main);
+
+    // Dimensions and sizes:
     --nav-height: 50px;
     --padding-gap-size-desk: 20px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+    --element-border-radius: 8px;
+
+    // Durations:
     --sidebar-transition-time: 0.23s;
     --button-transtion-time: 0.2s;
     --button-transtion-time-quick: 0.16s;
+
+    // Z-indexes:
     --modal-z-index: 100;
+
+    // Misc colors:
+    --backdrop-color: rgb(0 0 0 / 60%);
 }

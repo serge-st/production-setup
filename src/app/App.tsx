@@ -1,18 +1,23 @@
 import './styles/index.scss';
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useState } from 'react';
 import { AppRouter } from 'app/providers/AppRouter';
 import { classNames, useTheme } from 'shared/lib';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { PageWrapper } from 'pages/PageWrapper';
+// import { AppButton, Modal } from 'shared/UI';
 
 export const App: FC = () => {
     const {theme} = useTheme();
+
+    const [testIsOpen, setTestIsOpen] = useState(false);
     
     return (
         <div className={classNames('App', {}, [theme])}>
             <Suspense fallback=''>
                 <Navbar />
+                {/* <Modal isOpened={testIsOpen} onClose={() => setTestIsOpen(false)}>Test content</Modal> */}
+                {/* <AppButton onClick={() => setTestIsOpen(true)}>Test open modal</AppButton> */}
                 <div className='main-content-wrapper'>
                     <Sidebar />
                     <PageWrapper>
