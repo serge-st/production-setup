@@ -10,13 +10,15 @@ import { PageWrapper } from 'pages/PageWrapper';
 export const App: FC = () => {
     const {theme} = useTheme();
 
-    const [testIsOpen, setTestIsOpen] = useState(false);
+    // const [testIsOpen, setTestIsOpen] = useState(false);
     
     return (
         <div className={classNames('App', {}, [theme])}>
             <Suspense fallback=''>
                 <Navbar />
-                {/* <Modal isOpened={testIsOpen} onClose={() => setTestIsOpen(false)}>Test content</Modal> */}
+                {/* <Modal isOpened={testIsOpen} onClose={() => setTestIsOpen(false)}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia inventore labore qui quos officiis voluptatibus possimus excepturi consequuntur exercitationem dicta adipisci sequi, recusandae dignissimos ratione harum illum eaque dolores asperiores.
+                </Modal> */}
                 {/* <AppButton onClick={() => setTestIsOpen(true)}>Test open modal</AppButton> */}
                 <div className='main-content-wrapper'>
                     <Sidebar />

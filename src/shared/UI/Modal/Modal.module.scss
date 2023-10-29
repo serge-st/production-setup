@@ -16,14 +16,26 @@
 }
 
 .content {
-    width: 200px;
-    height: 200px;
+    max-width: 60%;
+    padding: var(--padding-gap-size-desk);
     background-color: var(--bg-color);
     border-radius: var(--element-border-radius);
+    transition: transform var(--generic-transtion-time);
+    transform: scale(0.5)
 }
 
 .opened {
     z-index: var(--modal-z-index);
     pointer-events: auto;
     opacity: 1;
+
+    .content {
+        transform: scale(1);
+    }
+}
+
+.closing {
+    .content {
+        transform: scale(0.3);
+    }
 }
