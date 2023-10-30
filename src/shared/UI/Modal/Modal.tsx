@@ -1,4 +1,4 @@
-import { FC, ReactNode, MouseEventHandler, useRef, useState, useEffect } from 'react';
+import { FC, ReactNode, MouseEventHandler, useState } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './Modal.module.scss';
 import { Mods } from 'shared/lib/classNames/classNames';
@@ -10,8 +10,6 @@ interface ModalProps {
     onClose: () => void;
 }
 
-const ANIMATION_DURATION = 180;
-
 export const Modal: FC<ModalProps> = (props) => {
     const {
         className,
@@ -21,29 +19,23 @@ export const Modal: FC<ModalProps> = (props) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timoutRef = useRef<ReturnType<typeof setTimeout>>();
 
     const handleClose = () => {
         if (onClose) {
             setIsClosing(true);
-            timoutRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DURATION);
         }
     };
-
-    useEffect(() => {
-        return () => {
-            clearTimeout(timoutRef.current);
-        };
-    }, []);
 
     const handleContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
         e.stopPropagation();
     };
 
-    getComputedStyle(document.documentElement).getPropertyValue('--my-variable-name');
+    const hadleTransitionEnd = () => {
+        if (onClose && isClosing) {
+            onClose();
+            setIsClosing(false);
+        }
+    };
 
     const mods: Mods = {
         [cls.opened]: isOpened,
@@ -53,8 +45,11 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <div className={classNames(cls.Modal, mods, [className])}>
             <div className={cls.overlay} onClick={handleClose}>
-                <div className={cls.content} onClick={handleContentClick}>
-                    
+                <div 
+                    className={cls.content} 
+                    onClick={handleContentClick}
+                    onTransitionEnd={hadleTransitionEnd}
+                >
                     {children}
                 </div>
             </div>
