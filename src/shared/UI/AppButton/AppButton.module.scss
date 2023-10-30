@@ -15,7 +15,7 @@
     background-color: var(--primary-color);
 }
 
-.clear:focus {
+.clear:focus-visible {
     box-shadow: 0 0 14px 0 var(--primary-color);
 }
 
@@ -45,7 +45,7 @@
     background-color: var(--tertiary-color)
 }
 
-.clear-inversed:focus {
+.clear-inversed:focus-visible {
     box-shadow: 0 0 14px 0 var(--tertiary-color);
 }
 
