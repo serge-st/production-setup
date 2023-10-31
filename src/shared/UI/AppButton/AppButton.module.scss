@@ -1,7 +1,7 @@
 .AppButton {
     color: var(--primary-color);
     border: 2px solid;
-    transition: color var(--generic-transtion-time), background-color var(--generic-transtion-time), box-shadow var(--generic-transtion-time-quick);
+    transition: color var(--generic-transtion-time), background-color var(--generic-transtion-time), box-shadow var(--generic-transtion-time);
 }
 
 // Clear Button Styles
@@ -20,8 +20,8 @@
 }
 
 .clear:active {
-    color: var(--tertiary-color);
-    background-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
     box-shadow: 0 0 14px 0 var(--primary-color);
 }
 
@@ -50,8 +50,8 @@
 }
 
 .clear-inversed:active {
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+    background-color: transparent;
     box-shadow: 0 0 14px 0 var(--tertiary-color);
 }
 
