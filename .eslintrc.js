@@ -31,6 +31,7 @@ module.exports = {
         '@typescript-eslint',
         'react',
         'i18next',
+        'react-hooks',
     ],
     'rules': {
         'indent': [
@@ -57,5 +58,7 @@ module.exports = {
         'eol-last': ['error', 'always'],
         '@typescript-eslint/ban-ts-comment': ['error',  { 'ts-expect-error': 'allow-with-description' }],
         'react/display-name': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
     },
 };
