@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
 export const THEME = {
-    REGULAR: 'regular',
-    DARK: 'dark',
+    REGULAR: 'regular-theme',
+    DARK: 'dark-theme',
 } as const;
 
 export type Theme = ObjectValues<typeof THEME>;

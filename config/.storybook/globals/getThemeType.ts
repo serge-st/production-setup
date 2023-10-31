@@ -1,10 +1,10 @@
 export const getThemeType = () => {
     const theme = {
-        defaultValue: 'regular',
+        defaultValue: 'regular-theme',
         toolbar: {
             items: [
-                { value: 'regular', icon: 'circlehollow', title: 'Regular Theme' },
-                { value: 'dark', icon: 'circle', title: 'Dark Theme' },
+                { value: 'regular-theme', icon: 'circlehollow', title: 'Regular Theme' },
+                { value: 'dark-theme', icon: 'circle', title: 'Dark Theme' },
             ],
             dynamicTitle: true,
         },

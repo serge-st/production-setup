@@ -18,7 +18,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({className}) => {
             onClick={() => toggleTheme()}
         >
             <div className={classNames(cls['theme-icon-container'], {}, [])}>
-                {theme === 'regular'
+                {theme === 'regular-theme'
                     ? <MoonIcon />
                     : <SunIcon />
                 }

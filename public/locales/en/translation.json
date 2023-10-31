@@ -4,5 +4,6 @@
   "Nav route name /about": "About Page",
   "Page not found": "Not sure what you are looking for... 😬",
   "Page Error": "Ooops, something went wrong 😬",
-  "Reload Page": "Reload The Page 🔄"
+  "Reload Page": "Reload The Page 🔄",
+  "Login": "Login"
 }

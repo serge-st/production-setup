@@ -9,7 +9,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: FC<ThemeProviderProps> = ({children}) => {
     const availableThemes: Theme[] = Object.values(THEME);
     const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
-    const defaultTheme = availableThemes.includes(storedTheme) ? storedTheme : 'regular';
+    const defaultTheme = availableThemes.includes(storedTheme) ? storedTheme : 'regular-theme';
     const [theme, setTheme] = useState<Theme>(defaultTheme);
 
     const defaultProps = useMemo<ThemeContextProps>(() => ({

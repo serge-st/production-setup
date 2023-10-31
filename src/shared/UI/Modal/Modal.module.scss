@@ -5,6 +5,7 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity var(--generic-transtion-time);
+    animation: fade-in var(--generic-transtion-time);
 }
 
 .overlay {
@@ -19,10 +20,12 @@
 .content {
     max-width: 60%;
     padding: var(--padding-gap-size-desk);
-    background-color: var(--bg-color);
+    font: var(--font-m);
+	color: var(--primary-color);
+	background-color: var(--bg-color);
     border-radius: var(--element-border-radius);
     transition: transform var(--generic-transtion-time);
-    transform: scale(0.5)
+    animation: zoom-in var(--generic-transtion-time);
 }
 
 .opened {
@@ -40,5 +43,25 @@
 
     .content {
         transform: scale(0.3);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1);
     }
 }

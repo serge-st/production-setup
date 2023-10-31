@@ -30,7 +30,7 @@ export const NavigationLinks: FC<NavigationLinksProps> = ({className, orientatio
 
     useEffect(() => {
         setActivePath(location.pathname);
-    }, [activePath]);
+    }, [activePath, location.pathname]);
 
     return (
         <div className={classNames(cls.NavigationLinks, {}, [cls[orientation], className])}>

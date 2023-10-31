@@ -1,14 +1,32 @@
-import { FC, ReactNode, MouseEventHandler, useState } from 'react';
-import { classNames } from 'shared/lib';
+import { FC, ReactNode, MouseEventHandler, useState, useEffect, useCallback } from 'react';
+import { classNames, useTheme } from 'shared/lib';
 import cls from './Modal.module.scss';
 import { Mods } from 'shared/lib/classNames/classNames';
+import { Portal } from 'shared/UI';
 
 interface ModalProps {
     className?: string;
-    children?: ReactNode;
+    children: ReactNode;
     isOpened: boolean;
     onClose: () => void;
 }
+
+type BodyScroll = 'disabled' | 'default';
+const setBodyScroll = (bodyScrollType: BodyScroll) => {
+    switch (bodyScrollType) {
+    case 'disabled': {
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+        break;
+    }
+    case 'default': {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+        break;
+    }
+    }
+};
 
 export const Modal: FC<ModalProps> = (props) => {
     const {
@@ -19,18 +37,39 @@ export const Modal: FC<ModalProps> = (props) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const { theme } = useTheme();
 
-    const handleClose = () => {
+    const handleClose = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
         }
-    };
+    }, [onClose]);
+
+    const handleKeyDown = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            handleClose();
+        }
+    }, [handleClose]);
+
+    useEffect(() => {
+        if (isOpened) {
+            window.addEventListener('keydown', handleKeyDown);
+            setBodyScroll('disabled');
+        } else {
+            setBodyScroll('default');
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            setBodyScroll('default');
+        };
+    }, [isOpened, handleKeyDown]);
 
     const handleContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
         e.stopPropagation();
     };
 
-    const hadleTransitionEnd = () => {
+    const handleTransitionEnd = () => {
         if (onClose && isClosing) {
             onClose();
             setIsClosing(false);
@@ -42,17 +81,20 @@ export const Modal: FC<ModalProps> = (props) => {
         [cls.closing]: isClosing,
     };
 
+    if (!isOpened) return null;
     return (
-        <div className={classNames(cls.Modal, mods, [className])}>
-            <div className={cls.overlay} onClick={handleClose}>
-                <div 
-                    className={cls.content} 
-                    onClick={handleContentClick}
-                    onTransitionEnd={hadleTransitionEnd}
-                >
-                    {children}
+        <Portal>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
+                <div className={cls.overlay} onClick={handleClose}>
+                    <div 
+                        className={cls.content} 
+                        onClick={handleContentClick}
+                        onTransitionEnd={handleTransitionEnd}
+                    >
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     );
 };

@@ -6,7 +6,8 @@
             "Nav route name /about": "About Page",
             "Page not found": "Not sure what you are looking for... 😬",
             "Page Error": "Ooops, something went wrong 😬",
-            "Reload Page": "Reload The Page 🔄"
+            "Reload Page": "Reload The Page 🔄",
+            "Login": "Login"
         },
         "pages/about": {
             "Title": "About Page",
@@ -24,7 +25,8 @@
             "Nav route name /about": "О Сайте",
             "Page not found": "Хммм, не уверен что именно ты ищешь... 😬",
             "Page Error": "Ой, что-то пошло не так 😬",
-            "Reload Page": "Перезагрузить страницу 🔄"
+            "Reload Page": "Перезагрузить страницу 🔄",
+            "Login": "Войти"
         },
         "pages/about": {
             "Title": "О Сайте",
