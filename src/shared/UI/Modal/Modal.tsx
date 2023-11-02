@@ -2,7 +2,7 @@ import { FC, ReactNode, MouseEventHandler, useState, useEffect, useCallback } fr
 import { classNames, useTheme } from 'shared/lib';
 import cls from './Modal.module.scss';
 import { Mods } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/UI';
+import { AppCloseButton, Portal } from 'shared/UI';
 
 interface ModalProps {
     className?: string;
@@ -91,6 +91,7 @@ export const Modal: FC<ModalProps> = (props) => {
                         onClick={handleContentClick}
                         onTransitionEnd={handleTransitionEnd}
                     >
+                        <AppCloseButton onClick={handleClose} className={cls['close-button']}/>
                         {children}
                     </div>
                 </div>

@@ -18,14 +18,21 @@
 }
 
 .content {
+    position: relative;
     max-width: calc(100% - var(--padding-gap-size-desk) * 2);
-    padding: var(--padding-gap-size-desk);
+    padding: calc(var(--padding-gap-size-desk) * 2);
     font: var(--font-m);
 	color: var(--primary-color);
 	background-color: var(--bg-color);
     border-radius: var(--element-border-radius);
     transition: transform var(--generic-transtion-time);
     animation: zoom-in var(--generic-transtion-time);
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .opened {
@@ -68,6 +75,6 @@
 
 @media screen and (min-width: 768px) {
     .content {
-        max-width: 60%;
+        max-width: 70%;
     }
 }

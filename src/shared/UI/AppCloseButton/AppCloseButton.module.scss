@@ -1,0 +1,14 @@
+.AppCloseButton {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+
+    svg {
+        width: 40px;
+        height: 40px;
+
+        path {
+            stroke: var(--highlight-color);
+        }
+    }
+}
