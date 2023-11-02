@@ -1,42 +1,37 @@
 .Sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: var(--sidebar-width);
+    max-width: 100%;
     height: 100%;
     padding: var(--padding-gap-size-desk);
     background-color: var(--primary-color);
     transition: width var(--sidebar-transition-time);
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .sidebar-toggle-container {
     display: flex;
     justify-content: flex-end;
     height: var(--font-line-height-m);
-}
 
-.arrow-button {
-    color: var(--tertiary-color);
-    transition: transform var(--sidebar-transition-time) linear;
-    transform: scale(-1, 1);
-}
+    .arrow-button {
+        color: var(--tertiary-color);
+        transition: transform var(--sidebar-transition-time) linear;
+        transform: scale(-1, 1);
 
-// TODO: Rewrite using scss indentation:
-.Sidebar.collapsed .arrow-button {
-    transform: scale(1, -1);
-}
+        svg {
+            width: 100%;
+            height: 100%;
 
-.arrow-button svg {
-    width: 100%;
-    height: 100%;
-}
-
-.arrow-button svg path {
-    stroke: var(--tertiary-color);
+            path {
+                stroke: var(--tertiary-color);
+            }
+        }
+    }
 }
 
 .main-content-container {
@@ -53,20 +48,25 @@
     transform: scale(1, 1);
 }
 
-.Sidebar.collapsed .switcher-container {
-    flex-direction: column;
-    transform: scale(-1, 1);
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .arrow-button {
+        transform: scale(1, -1);
+    }
+
+    .switcher-container {
+        flex-direction: column;
+        transform: scale(-1, 1);
+    }
+
+    .switcher-container > * {
+        transform: scale(-1, 1);
+    }
 }
 
-.Sidebar.collapsed .switcher-container > * {
-    transform: scale(-1, 1);
-}
-
-// TODO switch to mobile first:
-@media screen and (max-width: 600px) {
-	.Sidebar {
-		position: absolute;
-    	top: 0;
-    	left: 0;
-	}
+@media screen and (min-width: 768px) {
+    .Sidebar {
+        position: static;
+    }
 }
