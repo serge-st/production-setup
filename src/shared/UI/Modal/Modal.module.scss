@@ -19,8 +19,8 @@
 
 .content {
     position: relative;
-    max-width: calc(100% - var(--padding-gap-size-desk) * 2);
-    padding: calc(var(--padding-gap-size-desk) * 2);
+    max-width: calc(100% - var(--padding-gap-size-medium) * 2);
+    padding: var(--padding-gap-size-large);
     font: var(--font-m);
 	color: var(--primary-color);
 	background-color: var(--bg-color);

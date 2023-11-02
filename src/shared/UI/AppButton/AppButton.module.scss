@@ -1,7 +1,12 @@
 .AppButton {
     color: var(--primary-color);
+    cursor: pointer;
     border: 2px solid;
     transition: background-color var(--generic-transtion-time), box-shadow var(--generic-transtion-time);
+}
+
+.AppButton:disabled {
+    cursor: default;
 }
 
 // Clear Button Styles

@@ -24,7 +24,7 @@
     height: 2px;
     content: '';
     background-color: var(--tertiary-color);
-    animation: show-underline var(--sidebar-transition-time);
+    animation: show-underline var(--generic-transtion-time);
 }
 
 .clear-inversed:focus-visible,

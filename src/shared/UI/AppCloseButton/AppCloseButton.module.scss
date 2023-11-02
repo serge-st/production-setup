@@ -18,3 +18,11 @@
     outline: none;
     box-shadow: 0 0 14px 0 var(--tertiary-color);
 }
+
+.AppCloseButton:disabled {
+    cursor: default;
+    
+    svg path {
+        stroke: var(--tertiary-color);
+    }
+}

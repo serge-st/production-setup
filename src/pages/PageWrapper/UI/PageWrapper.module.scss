@@ -1,6 +1,6 @@
 .PageWrapper {
     flex: 0 0 calc(100vw - var(--sidebar-width-collapsed));
-	padding: var(--padding-gap-size-desk);
+	padding: var(--padding-gap-size-medium);
 }
 
 @media screen and (min-width: 768px) {
