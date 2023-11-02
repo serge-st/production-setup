@@ -37,3 +37,8 @@
         stroke: var(--tertiary-color);
     }
 }
+
+.ThemeSwitcher:focus-visible {
+    outline: none;
+    box-shadow: 0 0 14px 0 var(--tertiary-color);
+}

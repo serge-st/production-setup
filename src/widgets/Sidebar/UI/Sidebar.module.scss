@@ -17,19 +17,19 @@
     display: flex;
     justify-content: flex-end;
     height: var(--font-line-height-m);
+}
 
-    .arrow-button {
-        color: var(--tertiary-color);
-        transition: transform var(--sidebar-transition-time) linear;
-        transform: scale(-1, 1);
+.arrow-button {
+    color: var(--tertiary-color);
+    transition: transform var(--sidebar-transition-time) linear;
+    transform: scale(-1, 1);
 
-        svg {
-            width: 100%;
-            height: 100%;
+    svg {
+        width: 100%;
+        height: 100%;
 
-            path {
-                stroke: var(--tertiary-color);
-            }
+        path {
+            stroke: var(--tertiary-color);
         }
     }
 }
@@ -63,6 +63,11 @@
     .switcher-container > * {
         transform: scale(-1, 1);
     }
+}
+
+.arrow-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 14px 0 var(--tertiary-color);
 }
 
 @media screen and (min-width: 768px) {
