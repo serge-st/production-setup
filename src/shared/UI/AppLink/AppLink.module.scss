@@ -7,7 +7,7 @@
     width: fit-content;
     white-space: nowrap;
     border-radius: 4px;
-    transition: box-shadow var(--generic-transtion-time);
+    transition: box-shadow var(--generic-transition-time);
 }
 
 .clear-inversed {
@@ -27,7 +27,7 @@
     height: 2px;
     content: '';
     background-color: var(--tertiary-color);
-    animation: show-underline var(--generic-transtion-time);
+    animation: show-underline var(--generic-transition-time);
 }
 
 .clear-inversed:focus-visible,

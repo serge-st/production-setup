@@ -1,7 +1,7 @@
 .AppButton {
     cursor: pointer;
     border: 2px solid;
-    transition: background-color var(--generic-transtion-time), box-shadow var(--generic-transtion-time);
+    transition: background-color var(--generic-transition-time), box-shadow var(--generic-transition-time);
 }
 
 .AppButton:disabled {
@@ -85,7 +85,7 @@
     font: inherit;
     border: none;
     border-radius: 4px;
-    transition: box-shadow var(--generic-transtion-time);
+    transition: box-shadow var(--generic-transition-time);
 }
 
 .simple:focus-visible {

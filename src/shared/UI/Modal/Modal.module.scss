@@ -4,8 +4,8 @@
     z-index: -1;
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--generic-transtion-time);
-    animation: fade-in var(--generic-transtion-time);
+    transition: opacity var(--generic-transition-time);
+    animation: fade-in var(--generic-transition-time);
 }
 
 .overlay {
@@ -25,8 +25,8 @@
 	color: var(--primary-color);
 	background-color: var(--bg-color);
     border-radius: var(--element-border-radius);
-    transition: transform var(--generic-transtion-time);
-    animation: zoom-in var(--generic-transtion-time);
+    transition: transform var(--generic-transition-time);
+    animation: zoom-in var(--generic-transition-time);
 }
 
 .close-button {

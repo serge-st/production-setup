@@ -9,7 +9,7 @@
 	font: var(--font-m);
 	color: var(--primary-color);
 	background-color: var(--bg-color);
-	transition: min-height var(--generic-transtion-time) ease-in-out;
+	transition: min-height var(--generic-transition-time) ease-in-out;
 }
 
 .main-content-wrapper {
@@ -18,5 +18,5 @@
 	justify-content: flex-end;
 	height: calc(100vh - var(--nav-height));
 	height: calc(100dvh - var(--nav-height));
-	transition: height var(--generic-transtion-time) ease-in-out;
+	transition: height var(--generic-transition-time) ease-in-out;
 }

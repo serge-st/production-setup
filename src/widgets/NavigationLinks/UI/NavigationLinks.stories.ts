@@ -21,8 +21,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {},
+export const Regular: Story = {
+    args: {
+        showIcons: true,
+    },
+    decorators: [
+        TranslationsDecorator(),
+        PrimaryBgColorElmDecorator(),
+    ],
+};
+
+export const Narrow: Story = {
+    args: {
+        showIcons: true,
+        style: 'narrow',
+    },
     decorators: [
         TranslationsDecorator(),
         PrimaryBgColorElmDecorator(),

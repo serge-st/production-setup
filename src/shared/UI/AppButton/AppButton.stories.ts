@@ -74,3 +74,11 @@ export const ClearInversedDisabled: Story = {
         PrimaryBgColorElmDecorator(),
     ],
 };
+
+export const SimpleButton: Story = {
+    args: {
+        children: 'Test Button',
+        theme: 'simple',
+    },
+    decorators: [],
+};

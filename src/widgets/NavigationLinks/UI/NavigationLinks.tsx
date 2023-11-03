@@ -23,7 +23,7 @@ export const NavigationLinks: FC<NavigationLinksProps> = ({className, style = 'r
     const { t } = useTranslation();
     const location = useLocation();
     const [activePath, setActivePath] = useState<string | null>(null);
-    const [showText, setShowText] = useState(true);
+    const [showText, setShowText] = useState<boolean>(style === 'regular');
     const appRoutes = routeConfig.filter(({path}) => path !== '*');
 
     const handleClick = (path: string): void => {
@@ -33,6 +33,12 @@ export const NavigationLinks: FC<NavigationLinksProps> = ({className, style = 'r
     useEffect(() => {
         setActivePath(location.pathname);
     }, [activePath, location.pathname]);
+
+    useEffect(() => {
+        if (style === 'regular') {
+            setShowText(true);
+        }
+    }, [style]);
 
     const handleTransitionEnd = (e: TransitionEvent<HTMLElement>) => {
         if (e.propertyName === 'opacity' && style === 'narrow') {
@@ -46,7 +52,7 @@ export const NavigationLinks: FC<NavigationLinksProps> = ({className, style = 'r
                 {appRoutes.map(({path, icon, translationKey}) => {
                     return (
                         <li key={path} className={cls['link-wrapper']}>
-                            {showIcons && (<AppLink
+                            {(showIcons || style === 'narrow') && (<AppLink
                                 to={path} 
                                 onClick={() => handleClick(path)}
                                 theme='clear-inversed'

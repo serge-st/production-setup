@@ -22,6 +22,7 @@
 .arrow-button {
     width: 24px;
     height: 24px;
+    padding-right: 10px !important;
     color: var(--tertiary-color);
     transition: transform var(--sidebar-transition-time) linear !important;
     transform: scale(-1, 1);
