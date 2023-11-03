@@ -2,6 +2,8 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { RouteProps } from 'react-router-dom';
+import HomeIcon from 'shared/assets/icons/home.svg';
+import InfoIcon from 'shared/assets/icons/info.svg';
 
 const ROUTE = {
     MAIN: 'main',
@@ -24,9 +26,8 @@ type AppRoute = {
 
 type AppRouteProps = RouteProps & AppRoute;
 
-// TODO: pass icons and translation keys to routeConfig
 export const routeConfig: AppRouteProps[] = [
-    { path: appRoutes.main, element: <MainPage /> },
-    { path: appRoutes.about, element: <AboutPage /> },
+    { path: appRoutes.main, element: <MainPage />, icon: <HomeIcon />, translationKey: 'Nav route name /'},
+    { path: appRoutes.about, element: <AboutPage />, icon: <InfoIcon />, translationKey: 'Nav route name /about'},
     { path: appRoutes.notFound, element: <NotFoundPage /> },
 ];

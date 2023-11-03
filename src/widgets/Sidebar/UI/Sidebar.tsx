@@ -2,9 +2,9 @@ import { FC, useState } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './Sidebar.module.scss';
 import RightArrow from 'shared/assets/icons/right-arrow.svg';
-import { ThemeSwitcher } from 'shared/UI';
+import { AppButton, ThemeSwitcher } from 'shared/UI';
 import { LanguageSwitcher } from 'shared/UI';
-// import { NavigationLinks } from 'widgets/NavigationLinks';
+import { NavigationLinks } from 'widgets/NavigationLinks';
 
 interface SidebarProps {
     className?: string;
@@ -23,16 +23,18 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
             data-testid='sidebar'
         >
             <div className={cls['sidebar-toggle-container']}>
-                <button
+                <AppButton
                     className={cls['arrow-button']}
                     onClick={handleClick}
-                    type='button'
+                    theme='simple'
                 >
                     <RightArrow />
-                </button>
+                </AppButton>
             </div>
             <div className={cls['main-content-container']}>
-                {/* <NavigationLinks orientation='column' /> TODO: add when Redux is implemented */}
+                <NavigationLinks
+                    style={isClosed ? 'narrow' : 'regular'}
+                />
             </div>
             <div className={cls['switcher-container']}>
                 <LanguageSwitcher />

@@ -1,5 +1,4 @@
 .AppButton {
-    color: var(--primary-color);
     cursor: pointer;
     border: 2px solid;
     transition: background-color var(--generic-transtion-time), box-shadow var(--generic-transtion-time);
@@ -78,3 +77,19 @@
     padding: 8px 16px;
     font: var(--font-l);
 }
+
+
+// Simple Button Styles
+.AppButton.simple {
+    padding: initial;
+    font: inherit;
+    border: none;
+    border-radius: 4px;
+    transition: box-shadow var(--generic-transtion-time);
+}
+
+.simple:focus-visible {
+    box-shadow: 4px 4px 5px -4px var(--tertiary-color);
+}
+
+// Simple Button Styles End

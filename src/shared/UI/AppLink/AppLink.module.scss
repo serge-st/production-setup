@@ -5,6 +5,9 @@
     width: -moz-fit-content;
     width: -webkit-fit-content;
     width: fit-content;
+    white-space: nowrap;
+    border-radius: 4px;
+    transition: box-shadow var(--generic-transtion-time);
 }
 
 .clear-inversed {
@@ -30,7 +33,7 @@
 .clear-inversed:focus-visible,
 .clear-inversed-underlined:focus-visible {
     outline: none;
-    box-shadow: 0 0 14px 0 var(--tertiary-color);
+    box-shadow: 4px 4px 5px -4px var(--tertiary-color);
 }
 
 @keyframes show-underline {

@@ -28,14 +28,3 @@ export const Default: Story = {
         PrimaryBgColorElmDecorator(),
     ],
 };
-
-export const Column: Story = {
-    args: {
-        orientation: 'column',
-    },
-    decorators: [
-        TranslationsDecorator(),
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
