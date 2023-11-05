@@ -4,7 +4,7 @@ import cls from './Sidebar.module.scss';
 import RightArrow from 'shared/assets/icons/right-arrow.svg';
 import { AppButton, ThemeSwitcher } from 'shared/UI';
 import { LanguageSwitcher } from 'shared/UI';
-import { NavigationLinks } from 'widgets/NavigationLinks';
+import { NavigationLinks } from 'features/NavigationLinks';
 
 interface SidebarProps {
     className?: string;

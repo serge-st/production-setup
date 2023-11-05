@@ -6,7 +6,7 @@ import { PrimaryBgColorElmDecorator } from 'shared/config/storybook/decorators/P
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-    title: 'widgets/NavigationLinks',
+    title: 'features/NavigationLinks',
     component: NavigationLinks,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
