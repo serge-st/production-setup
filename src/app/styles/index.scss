@@ -6,10 +6,14 @@
 .App {
 	min-height: 100vh;
 	min-height: 100dvh;
+	transition: min-height var(--generic-transition-time) ease-in-out;
+}
+
+.App,
+.app-modal-content {
 	font: var(--font-m);
 	color: var(--primary-color);
 	background-color: var(--bg-color);
-	transition: min-height var(--generic-transition-time) ease-in-out;
 }
 
 .main-content-wrapper {

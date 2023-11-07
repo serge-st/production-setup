@@ -21,9 +21,6 @@
     position: relative;
     max-width: calc(100% - var(--padding-gap-size-medium) * 2);
     padding: var(--padding-gap-size-large);
-    font: var(--font-m);
-	color: var(--primary-color);
-	background-color: var(--bg-color);
     border-radius: var(--element-border-radius);
     transition: transform var(--generic-transition-time);
     animation: zoom-in var(--generic-transition-time);
