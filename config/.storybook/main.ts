@@ -4,7 +4,7 @@ import path from 'path';
 import { getCssLoader } from "../build/loaders/getCssLoader";
 import { getSvgLoader } from "../build/loaders/getSvgLoader";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { RuleSetRule } from 'webpack';
+import { DefinePlugin, RuleSetRule } from 'webpack';
 import ExtractTranslations from './plugins/ExtractTranslations';
 
 const config: StorybookConfig = {
@@ -41,7 +41,10 @@ const config: StorybookConfig = {
     config.resolve?.modules?.push(srcPath);
     config.module?.rules?.push(getSvgLoader());
     config.module?.rules?.push(getCssLoader(true, false));
-    config.plugins?.push(new ExtractTranslations(), new MiniCssExtractPlugin());
+    config.plugins?.push(
+      new ExtractTranslations(),
+      new MiniCssExtractPlugin(),
+      new DefinePlugin({ __IS_DEV__: true }));
     return config;
   },
 };

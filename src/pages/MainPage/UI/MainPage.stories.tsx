@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import MainPage from './MainPage';
 import { TranslationsDecorator } from 'shared/config/storybook/decorators/TranslationsDecorator';
 import { PageWrapperDecorator } from 'shared/config/storybook/decorators/PageWrapperDecorator';
+import { StateDecorator } from 'shared/config/storybook/decorators/StateDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -26,5 +27,6 @@ export const Default: Story = {
     decorators: [
         PageWrapperDecorator(),
         TranslationsDecorator(),
+        StateDecorator({ counter: { value: 0 } }),
     ],
 };
