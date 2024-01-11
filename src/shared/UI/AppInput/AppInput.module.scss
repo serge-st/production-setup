@@ -1,0 +1,23 @@
+.AppInput{
+    padding: 8px;
+}
+
+.AppInput:disabled {
+    cursor: default;
+}
+
+.clear {
+    color: var(--primary-color);
+}
+
+.clear:focus-visible {
+    box-shadow: 0 0 14px 0 var(--primary-color);
+}
+
+.clear-inversed {
+    color: var(--primary-color);
+}
+
+.clear-inversed:focus-visible {
+    box-shadow: 0 0 14px 0 var(--tertiary-color);
+}
