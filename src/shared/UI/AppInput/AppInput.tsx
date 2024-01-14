@@ -13,10 +13,11 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onC
     className?: string;
     onChange?: (value: string) => void;
     theme?: AppInputTheme;
+    hasError?: boolean;
 }
 
 export const AppInput: FC<AppInputProps> = (props) => {
-    const { onChange, className, type = 'text', theme = 'clear', ...otherProps } = props;
+    const { onChange, className, type = 'text', theme = 'clear', hasError, ...otherProps } = props;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -24,7 +25,7 @@ export const AppInput: FC<AppInputProps> = (props) => {
 
     return ( 
         <input 
-            className={classNames(cls.AppInput, {}, [className, cls[theme]])}
+            className={classNames(cls.AppInput, {[cls.error]: hasError }, [className, cls[theme]])}
             type={type}
             {...otherProps}
             onChange={handleChange}

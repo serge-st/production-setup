@@ -1,5 +1,6 @@
 .AppInput{
-    padding: 8px;
+    padding: 6px;
+    border: 2px solid transparent;
 }
 
 .AppInput:disabled {
@@ -14,10 +15,22 @@
     box-shadow: 0 0 14px 0 var(--primary-color);
 }
 
+.clear:disabled {
+    background-color: var(--tertiary-color)
+}
+
 .clear-inversed {
     color: var(--primary-color);
 }
 
 .clear-inversed:focus-visible {
     box-shadow: 0 0 14px 0 var(--tertiary-color);
+}
+
+.clear-inversed:disabled {
+    background-color: var(--secondary-color)
+}
+
+.error {
+    border: 2px solid var(--error-color);
 }
