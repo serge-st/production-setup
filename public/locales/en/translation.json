@@ -5,5 +5,7 @@
   "Page not found": "Not sure what you are looking for... 😬",
   "Page Error": "Ooops, something went wrong 😬",
   "Reload Page": "Reload The Page 🔄",
-  "Login": "Login"
+  "Login": "Login",
+  "Username": "Username",
+  "Password": "Password"
 }

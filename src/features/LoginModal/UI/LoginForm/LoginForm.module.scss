@@ -1,0 +1,13 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--font-size-m);
+    align-items: flex-end;
+    justify-content: center;
+    width: 300px;
+    max-width: 100%;
+}
+
+.input {
+    width: 100%;
+}
