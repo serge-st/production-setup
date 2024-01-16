@@ -15,7 +15,7 @@ export const LoginForm: FC<LoginFormProps> = ({className}) => {
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
             <AppInput placeholder={t('Username')} className={cls.input}/>
-            <AppInput placeholder={t('Password')} className={cls.input}/>
+            <AppInput type="password" placeholder={t('Password')} className={cls.input}/>
             <AppButton className={cls['login-button']}>{t('Login')}</AppButton>
         </div>
     );
