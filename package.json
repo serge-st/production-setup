@@ -19,7 +19,8 @@
     "test:screenshot:approve": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/.storybook",
     "storybook:build": "storybook build -c ./config/.storybook",
-    "storybook:build:ci": "storybook build -c ./config/.storybook --quiet"
+    "storybook:build:ci": "storybook build -c ./config/.storybook --quiet",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -86,7 +87,8 @@
     "webpack": "^5.88.1",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
