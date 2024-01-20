@@ -4,9 +4,9 @@ import cls from './LoginForm.module.scss';
 import { AppInput } from 'shared/UI/AppInput/AppInput';
 import { AppButton } from 'shared/UI';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getLoginData } from 'features/LoginModal/Model/selectors/getLoginData';
-import { loginActions } from 'features/LoginModal/Model/slice/loginSlice';
+import { authenticate, loginActions, useAppDispatch } from 'features/LoginModal/Model/slice/loginSlice';
 
 interface LoginFormProps {
     className?: string;
@@ -15,7 +15,7 @@ interface LoginFormProps {
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const { username, password } = useSelector(getLoginData);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     
     const onUsernameChange = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -23,6 +23,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     const onPasswordChange = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
+    }, [dispatch]);
+
+    const handleClick = useCallback(() => {
+        dispatch(authenticate());
     }, [dispatch]);
 
     return (
@@ -42,7 +46,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
             />
             <AppButton 
                 className={cls['login-button']}
-                onClick={() => console.log({ username, password })}
+                onClick={handleClick}
             >{t('Login')}</AppButton>
         </div>
     );
