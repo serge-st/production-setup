@@ -17,3 +17,5 @@ export const createReduxStore = (initialState?: StateSchema) => {
         preloadedState: initialState,
     });
 };
+
+export type AppStore = ReturnType<typeof createReduxStore>;
