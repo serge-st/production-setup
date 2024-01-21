@@ -2,14 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import axios, { isAxiosError } from 'axios';
 import { UserSchema, userActions } from 'entities/User';
-
-export interface ErrorResponseData {
-    message: string | string[];
-    error: string;
-    statusCode: number;
-}
-
-type LoginByUsernameError = ErrorResponseData['message'];
+import { LoginByUsernameError } from '../interfaces/ErrorResponseData';
 
 export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectValue: LoginByUsernameError }>(
     'login/loginByUsername',
@@ -25,7 +18,7 @@ export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectV
 
             console.log('thunk response.data', response.data);
 
-            dispatch(userActions.setUser(response.data));
+            dispatch(userActions.setUserData(response.data));
             return response.data;
         } catch (error) {
             if (!isAxiosError(error)) return rejectWithValue(error.message);
