@@ -1,5 +1,5 @@
 import { FC, InputHTMLAttributes } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, useTheme } from 'shared/lib';
 import cls from './AppInput.module.scss';
 
 const APP_INPUT_THEME = {
@@ -18,6 +18,8 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onC
 
 export const AppInput: FC<AppInputProps> = (props) => {
     const { onChange, className, type = 'text', theme = 'clear', hasError, ...otherProps } = props;
+    const { theme: appTheme } = useTheme();
+    const isDarkTheme = appTheme === 'dark-theme';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -25,7 +27,7 @@ export const AppInput: FC<AppInputProps> = (props) => {
 
     return ( 
         <input 
-            className={classNames(cls.AppInput, {[cls.error]: hasError }, [className, cls[theme]])}
+            className={classNames(cls.AppInput, {[cls.error]: hasError, [cls.dark]: isDarkTheme }, [className, cls[theme]])}
             type={type}
             {...otherProps}
             onChange={handleChange}

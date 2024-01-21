@@ -1,4 +1,4 @@
-.AppInput{
+.AppInput {
     padding: 6px;
     border: 2px solid transparent;
 }
@@ -9,6 +9,10 @@
 
 .clear {
     color: var(--primary-color);
+}
+
+.dark.clear {
+    color: var(--tertiary-color);
 }
 
 .clear:focus-visible {
