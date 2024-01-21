@@ -18,6 +18,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const { username, password, isLoading, error } = useSelector(getLoginState);
     const dispatch = useAppDispatch();
+    const isFormEmpty = !username || !password;
     
     const onUsernameChange = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -50,7 +51,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
             <AppButton 
                 className={cls['login-button']}
                 onClick={handleClick}
-                disabled={isLoading}
+                disabled={isFormEmpty || isLoading}
             >{t('Login')}</AppButton>
         </div>
     );
