@@ -1,8 +1,6 @@
-import { AnyAction, Dispatch, ThunkDispatch, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { LoginSchema } from '../interfaces/LoginSchema';
-import axios from 'axios';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useDispatch } from 'react-redux';
+import { loginByUsername } from '../services/loginByUsername';
 
 const initialState: LoginSchema = {
     username: '',
@@ -10,50 +8,33 @@ const initialState: LoginSchema = {
     isLoading: false,
 };
 
-
-export type AppDispatch = ThunkDispatch<StateSchema, undefined, AnyAction> & Dispatch<AnyAction>
-export const useAppDispatch: () => AppDispatch = useDispatch;
-
-export const authenticate = createAsyncThunk(
-    'login/authenticate',
-    async (_arg, { getState }) => {
-        const { login } = getState() as StateSchema;
-        const { username, password } = login;
-        console.log(login);
-
-        try {
-            const response = await axios.post('http://localhost:3335/auth/login', { username, password });
-            console.log(response.data);
-            return response.data;
-        } catch (error) {
-            throw new Error('something went wrong');
-        }
-    },
-);
-
 const userSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
-        setUsername(state, action) {
+        setUsername(state, action: PayloadAction<string>) {
             state.username = action.payload;
         },
-        setPassword(state, action) {
+        setPassword(state, action: PayloadAction<string>) {
             state.password = action.payload;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(authenticate.pending, (state) => {
+            .addCase(loginByUsername.pending, (state) => {
+                state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(authenticate.fulfilled, (state, { payload }) => {
+            .addCase(loginByUsername.fulfilled, (state, { payload }) => {
+                state.error = undefined;
                 state.isLoading = false;
                 console.log('payload in reducer', payload);
             })
-            .addCase(authenticate.rejected, (state) => {
+            .addCase(loginByUsername.rejected, (state, { payload }) => {
                 state.isLoading = false;
-                state.error = 'Error';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                state.error = payload;
             });
     },
 });

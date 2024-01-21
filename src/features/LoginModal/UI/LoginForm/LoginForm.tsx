@@ -5,8 +5,10 @@ import { AppInput } from 'shared/UI/AppInput/AppInput';
 import { AppButton } from 'shared/UI';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getLoginData } from 'features/LoginModal/Model/selectors/getLoginData';
-import { authenticate, loginActions, useAppDispatch } from 'features/LoginModal/Model/slice/loginSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { getLoginState } from '../../Model/selectors/getLoginState';
+import { loginActions } from '../../Model/slice/loginSlice';
+import { loginByUsername } from 'features/LoginModal/Model/services/loginByUsername';
 
 interface LoginFormProps {
     className?: string;
@@ -14,7 +16,7 @@ interface LoginFormProps {
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
-    const { username, password } = useSelector(getLoginData);
+    const { username, password, isLoading, error } = useSelector(getLoginState);
     const dispatch = useAppDispatch();
     
     const onUsernameChange = useCallback((value: string) => {
@@ -26,11 +28,12 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch]);
 
     const handleClick = useCallback(() => {
-        dispatch(authenticate());
+        dispatch(loginByUsername());
     }, [dispatch]);
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            {!!error && <div>{error}</div>}
             <AppInput 
                 placeholder={t('Username')} 
                 className={cls.input}
@@ -47,6 +50,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
             <AppButton 
                 className={cls['login-button']}
                 onClick={handleClick}
+                disabled={isLoading}
             >{t('Login')}</AppButton>
         </div>
     );
