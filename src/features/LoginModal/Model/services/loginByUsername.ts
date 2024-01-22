@@ -3,6 +3,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import axios, { isAxiosError } from 'axios';
 import { UserSchema, userActions } from 'entities/User';
 import { LoginByUsernameError } from '../interfaces/ErrorResponseData';
+import { USER_ACCESS_TOKEN } from 'shared/lib';
 
 export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectValue: LoginByUsernameError }>(
     'login/loginByUsername',
@@ -16,8 +17,7 @@ export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectV
 
             if (!response.data) throw new Error('Unexpected response');
 
-            // TODO: save to local storage
-
+            localStorage.setItem(USER_ACCESS_TOKEN, response.data.access_token);
             dispatch(userActions.setUserData(response.data));
             return response.data;
         } catch (error) {
