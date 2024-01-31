@@ -25,10 +25,9 @@ const userSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(loginByUsername.fulfilled, (state, { payload }) => {
+            .addCase(loginByUsername.fulfilled, (state) => {
                 state.error = undefined;
                 state.isLoading = false;
-                console.log('payload in reducer', payload);
             })
             .addCase(loginByUsername.rejected, (state, { payload }) => {
                 state.isLoading = false;

@@ -34,6 +34,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            {/* TODO: create a shared/UI/Text component */}
             {!!error && <div>{error}</div>}
             <AppInput 
                 placeholder={t('Username')} 
