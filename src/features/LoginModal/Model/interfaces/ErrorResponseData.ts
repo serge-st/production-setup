@@ -1,5 +1,5 @@
 export interface ErrorResponseData {
-    message: string | string[];
+    message: string; // string | string[] on backend
     error: string;
     statusCode: number;
 }
