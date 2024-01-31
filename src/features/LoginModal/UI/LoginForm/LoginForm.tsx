@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getLoginState } from '../../Model/selectors/getLoginState';
 import { loginActions } from '../../Model/slice/loginSlice';
-import { loginByUsername } from 'features/LoginModal/Model/services/loginByUsername';
+import { loginByUsername } from '../../Model/services/loginByUsername';
 
 interface LoginFormProps {
     className?: string;
