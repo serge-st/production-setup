@@ -6,12 +6,15 @@ interface TextProps {
     className?: string;
     title?: string;
     body?: string;
+    headerType?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
-export const Text: FC<TextProps> = ({className, title, body}) => {
+export const Text: FC<TextProps> = ({className, title, body, headerType}) => {
+    const Header = headerType || 'h2'; 
+
     return (
         <section className={classNames(cls.Text, {}, [className])}>
-            {!!title && <h2 className={cls.h2}>{title}</h2>}
+            {!!title && <Header className={cls.h2}>{title}</Header>}
             {!!body && <p className={cls.p}>{body}</p>}
         </section>
     );

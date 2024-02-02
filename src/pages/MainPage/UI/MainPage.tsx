@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/UI';
 
 const MainPage: FC = () => {
     const { t } = useTranslation('pages/main');
 
     return (
         <div>
-            <h1>{t('Title')}</h1>
-            <p style={{color: 'var(--secondary-color)'}}>{t('Body')}</p>
+            <Text title={t('Title')} body={t('Body')} headerType='h1'/>
         </div>
     );
 };
