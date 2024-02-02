@@ -18,6 +18,14 @@ const userSlice = createSlice({
         setPassword(state, action: PayloadAction<string>) {
             state.password = action.payload;
         },
+        resetError(state) {
+            state.error = undefined;
+        },
+        resetForm(state) {
+            state.username = '';
+            state.password = '';
+            state.error = undefined;
+        },
     },
     extraReducers: (builder) => {
         builder

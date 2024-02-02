@@ -2,10 +2,10 @@ import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './LoginForm.module.scss';
 import { AppInput } from 'shared/UI/AppInput/AppInput';
-import { AppButton } from 'shared/UI';
+import { AppButton, AppText } from 'shared/UI';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib';
 import { getLoginState } from '../../Model/selectors/getLoginState';
 import { loginActions } from '../../Model/slice/loginSlice';
 import { loginByUsername } from '../../Model/services/loginByUsername';
@@ -21,12 +21,14 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const isFormEmpty = !username || !password;
     
     const onUsernameChange = useCallback((value: string) => {
+        if (error) dispatch(loginActions.resetError());
         dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    }, [dispatch, error]);
 
     const onPasswordChange = useCallback((value: string) => {
+        if (error) dispatch(loginActions.resetError());
         dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    }, [dispatch, error]);
 
     const handleClick = useCallback(() => {
         dispatch(loginByUsername());
@@ -34,8 +36,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            {/* TODO: create a shared/UI/Text component */}
-            {!!error && <div>{error}</div>}
+            <AppText className={cls.error} body={error ?? ''} theme='error' />
             <AppInput 
                 placeholder={t('Username')} 
                 className={cls.input}
