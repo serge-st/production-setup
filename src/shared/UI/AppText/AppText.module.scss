@@ -1,0 +1,36 @@
+.AppText.standard {
+    color: var(--primary-color);
+}
+
+.h2 {
+    font: var(--font-l);
+}
+
+.p {
+    font: var(--font-m);
+    color: var(--secondary-color);
+}
+
+.AppText.inversed {
+    color: var(--tertiary-color);
+
+    .p {
+        color: var(--tertiary-color);
+    }
+}
+
+.AppText.error {
+    color: var(--error-color);
+
+    .p {
+        color: var(--error-color);
+    }
+}
+
+.AppText.highlighted {
+    color: var(--highlight-color);
+
+    .p {
+        color: var(--highlight-color);
+    }
+}
