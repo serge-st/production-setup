@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './LoginForm.module.scss';
 import { AppInput } from 'shared/UI/AppInput/AppInput';
@@ -33,6 +33,17 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const handleClick = useCallback(() => {
         dispatch(loginByUsername());
     }, [dispatch]);
+
+    const handleEnter = useCallback((e: KeyboardEvent) => {
+        if (isFormEmpty) return;
+        if (e.key === 'Enter') handleClick();
+    }, [handleClick, isFormEmpty]);
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleEnter);
+
+        return () => window.removeEventListener('keydown', handleEnter);
+    }, [handleEnter]);
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
