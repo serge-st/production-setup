@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import { THEME, Theme, ThemeContext, ThemeContextProps } from '../lib/ThemeContext';
 import { LOCAL_STORAGE_THEME_KEY } from 'shared/lib';
 
@@ -17,7 +17,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({children, externalTheme})
         theme,
         setTheme,
     }), [theme]);
-    
+
+    useEffect(() => {
+        setTheme(externalTheme ?? defaultTheme);
+    }, [externalTheme, defaultTheme]);
+
     return (
         <ThemeContext.Provider value={defaultProps}>
             {children}

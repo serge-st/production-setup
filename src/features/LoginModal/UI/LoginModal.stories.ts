@@ -31,3 +31,14 @@ export const Default: Story = {
         StateDecorator({ login: { username: '', password: '' } }),
     ],
 };
+
+export const Error: Story = {
+    args: {
+        isOpened: true,
+        onClose: () => { },
+    },
+    decorators: [
+        TranslationsDecorator(),
+        StateDecorator({ login: { username: '', password: '', error: 'Some backend error' } }),
+    ],
+};

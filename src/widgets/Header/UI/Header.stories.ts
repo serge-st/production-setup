@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Header } from './Header';
 import { TranslationsDecorator } from 'shared/config/storybook/decorators/TranslationsDecorator';
+import { StateDecorator } from 'shared/config/storybook/decorators/StateDecorator';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -23,6 +24,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {},
     decorators: [
+        StateDecorator({
+            login: {
+                username: '',
+                password: '',
+                isLoading: false,
+            },
+        }),
         TranslationsDecorator(),
     ],
 };
+
