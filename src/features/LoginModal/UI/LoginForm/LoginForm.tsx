@@ -42,6 +42,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 className={cls.input}
                 value={username}
                 onChange={onUsernameChange}
+                hasError={!!error}
             />
             <AppInput 
                 type="password" 
@@ -49,6 +50,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 className={cls.input}
                 value={password}
                 onChange={onPasswordChange}
+                hasError={!!error}
             />
             <AppButton 
                 className={cls['login-button']}
