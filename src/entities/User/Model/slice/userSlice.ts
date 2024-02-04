@@ -1,5 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { UserSchema } from '../interfaces/UserSchema';
+import { USER_ACCESS_TOKEN } from 'shared/lib';
+import { logout } from '../services/logout';
 
 const initialState: UserSchema = {};
 
@@ -10,6 +12,24 @@ const userSlice = createSlice({
         setUserData: (_state, action: PayloadAction<UserSchema>) => {
             return action.payload;
         },
+        initUserData: () => {
+            const userData = localStorage.getItem(USER_ACCESS_TOKEN);
+            return JSON.parse(userData ?? '{}');
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(logout.pending, () => {
+                return initialState;
+            })
+            .addCase(logout.fulfilled, () => {
+                localStorage.removeItem(USER_ACCESS_TOKEN);
+                return initialState;
+            })
+            .addCase(logout.rejected, () => {
+                localStorage.removeItem(USER_ACCESS_TOKEN);
+                return initialState;
+            });
     },
 });
 

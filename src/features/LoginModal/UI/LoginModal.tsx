@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { LoginForm } from './LoginForm/LoginForm';
 import { Modal } from 'shared/UI';
 import { loginActions } from '../Model/slice/loginSlice';
@@ -12,10 +12,10 @@ interface LoginModalProps {
 export const LoginModal: FC<LoginModalProps> = ({isOpened, onClose }) => {
     const dispatch = useAppDispatch();
 
-    const handleClose = () => {
+    const handleClose = useCallback(() => {
         dispatch(loginActions.resetForm());
         onClose();
-    };
+    }, [dispatch, onClose]);
     
     return (
         <Modal 

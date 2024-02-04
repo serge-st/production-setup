@@ -69,12 +69,12 @@ export const Modal: FC<ModalProps> = (props) => {
         e.stopPropagation();
     };
 
-    const handleTransitionEnd = () => {
+    const handleTransitionEnd = useCallback(() => {
         if (onClose && isClosing) {
             onClose();
             setIsClosing(false);
         }
-    };
+    }, [onClose, isClosing]);
 
     const mods: Mods = {
         [cls.opened]: isOpened,

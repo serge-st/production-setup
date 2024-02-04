@@ -36,6 +36,8 @@ const userSlice = createSlice({
             .addCase(loginByUsername.fulfilled, (state) => {
                 state.error = undefined;
                 state.isLoading = false;
+                state.username = '';
+                state.password = '';
             })
             .addCase(loginByUsername.rejected, (state, { payload }) => {
                 state.isLoading = false;

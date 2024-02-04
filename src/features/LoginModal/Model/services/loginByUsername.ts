@@ -17,7 +17,7 @@ export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectV
 
             if (!response.data) throw new Error('Unexpected response');
 
-            localStorage.setItem(USER_ACCESS_TOKEN, response.data.access_token);
+            localStorage.setItem(USER_ACCESS_TOKEN, JSON.stringify(response.data));
             dispatch(userActions.setUserData(response.data));
             return response.data;
         } catch (error) {
