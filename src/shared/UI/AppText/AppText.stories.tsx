@@ -35,8 +35,7 @@ export const Default: Story = {
             control: { type: 'select' },
         },
     },
-    decorators: [
-    ],
+    decorators: [],
 };
 
 export const Inversed: Story = {

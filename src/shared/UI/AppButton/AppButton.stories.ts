@@ -20,55 +20,34 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const ClearMd: Story = {
+export const Clear: Story = {
     args: {
         children: 'Test Button',
         theme: 'clear',
+        size: 'medium',
+        disabled: false,
+    },
+    argTypes: {
+        size: {
+            options: ['medium', 'large'],
+            control: { type: 'inline-radio' },
+        },
     },
 };
 
-export const ClearLg: Story = {
-    args: {
-        children: 'Test Button',
-        theme: 'clear',
-        size: 'large',
-    },
-};
-
-export const ClearDisabled: Story = {
-    args: {
-        children: 'Test Disabled',
-        theme: 'clear',
-        disabled: true,
-    },
-};
 
 export const ClearInversedMd: Story = {
     args: {
         children: 'Test Button',
         theme: 'clear-inversed',
+        size: 'medium',
+        disabled: false,
     },
-    decorators: [
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
-export const ClearInversedLg: Story = {
-    args: {
-        children: 'Test Button',
-        theme: 'clear-inversed',
-        size: 'large',
-    },
-    decorators: [
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
-export const ClearInversedDisabled: Story = {
-    args: {
-        children: 'Test Disabled',
-        theme: 'clear-inversed',
-        disabled: true,
+    argTypes: {
+        size: {
+            options: ['medium', 'large'],
+            control: { type: 'inline-radio' },
+        },
     },
     decorators: [
         PrimaryBgColorElmDecorator(),

@@ -24,6 +24,13 @@ type Story = StoryObj<typeof meta>;
 export const Regular: Story = {
     args: {
         showIcons: true,
+        style: 'regular',
+    },
+    argTypes: {
+        style: {
+            options: ['regular', 'narrow'],
+            control: { type: 'inline-radio', default: 'regular' },
+        },
     },
     decorators: [
         TranslationsDecorator(),
@@ -31,13 +38,13 @@ export const Regular: Story = {
     ],
 };
 
-export const Narrow: Story = {
-    args: {
-        showIcons: true,
-        style: 'narrow',
-    },
-    decorators: [
-        TranslationsDecorator(),
-        PrimaryBgColorElmDecorator(),
-    ],
-};
+// export const Narrow: Story = {
+//     args: {
+//         showIcons: true,
+//         style: 'narrow',
+//     },
+//     decorators: [
+//         TranslationsDecorator(),
+//         PrimaryBgColorElmDecorator(),
+//     ],
+// };

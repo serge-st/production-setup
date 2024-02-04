@@ -23,45 +23,18 @@ type Story = StoryObj<typeof meta>;
 export const Clear: Story = {
     args: {
         theme: 'clear',
-    },
-};
-
-export const ClearDisabled: Story = {
-    args: {
-        theme: 'clear',
-        disabled: true,
-    },
-};
-
-export const ClearError: Story = {
-    args: {
-        theme: 'clear',
-        hasError: true,
+        disabled: false,
+        hasError: false,
     },
 };
 
 export const ClearInversed: Story = {
     args: {
         theme: 'clear-inversed',
+        disabled: false,
+        hasError: false,
     },
     decorators: [
         PrimaryBgColorElmDecorator(),
     ],
-};
-
-export const ClearInversedDisabled: Story = {
-    args: {
-        theme: 'clear-inversed',
-        disabled: true,
-    },
-    decorators: [
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
-export const ClearInversedError: Story = {
-    args: {
-        theme: 'clear-inversed',
-        hasError: true,
-    },
 };

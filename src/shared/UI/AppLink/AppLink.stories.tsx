@@ -28,14 +28,11 @@ export const ClearInversed: Story = {
     args: {
         theme: 'clear-inversed',
     },
-    decorators: [
-        PrimaryBgColorElmDecorator(),
-    ],
-};
-
-export const ClearInversedUnderlined: Story = {
-    args: {
-        theme: 'clear-inversed-underlined',
+    argTypes: {
+        theme: {
+            options: ['clear-inversed', 'clear-inversed-underlined'],
+            control: { type: 'inline-radio' },
+        },
     },
     decorators: [
         PrimaryBgColorElmDecorator(),
