@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames, useAppDispatch } from 'shared/lib';
 import cls from './Header.module.scss';
 import { AppButton } from 'shared/UI';
@@ -16,11 +16,17 @@ export const Header: FC<HeaderProps> = ({className}) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const userData = useSelector(getUserData);
+    const modalRef = useRef<HTMLDivElement>(null);
 
     const handleLogout = useCallback(() => {
-        setIsAuthModalOpen(false);
         dispatch(logoutUser());
     }, [dispatch]);
+
+    useEffect(() => {
+        if (userData.access_token) {
+            setIsAuthModalOpen(false);
+        }
+    }, [userData.access_token]);
 
     if (userData.access_token) {
         return (
@@ -32,13 +38,13 @@ export const Header: FC<HeaderProps> = ({className}) => {
             </header>
         );
     } 
-    // TODO: fix unmount animation
+
     return (
         <header className={classNames(cls.Header, {}, [className])}>
             <AppButton theme={'clear-inversed'} onClick={() => setIsAuthModalOpen(true)}>{t('Login')}</AppButton>
-    
-            <LoginModal isOpened={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
+
+            <LoginModal ref={modalRef} isOpened={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
         </header>
     );
-    
+
 };
