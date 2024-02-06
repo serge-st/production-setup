@@ -42,3 +42,14 @@ export const Error: Story = {
         StateDecorator({ login: { username: '', password: '', error: 'Some backend error' } }),
     ],
 };
+
+export const Loading: Story = {
+    args: {
+        isOpened: true,
+        onClose: () => { },
+    },
+    decorators: [
+        TranslationsDecorator(),
+        StateDecorator({ login: { username: 'test', password: 'user', isLoading: true } }),
+    ],
+};

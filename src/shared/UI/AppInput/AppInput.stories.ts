@@ -25,6 +25,7 @@ export const Clear: Story = {
         theme: 'clear',
         disabled: false,
         hasError: false,
+        isReadOnly: false,
     },
 };
 
@@ -33,6 +34,7 @@ export const ClearInversed: Story = {
         theme: 'clear-inversed',
         disabled: false,
         hasError: false,
+        isReadOnly: false,
     },
     decorators: [
         PrimaryBgColorElmDecorator(),

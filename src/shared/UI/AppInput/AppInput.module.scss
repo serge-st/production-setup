@@ -23,7 +23,21 @@
     background-color: var(--tertiary-color)
 }
 
+.clear.read-only {
+    color: var(--tertiary-color);
+    cursor: default;
+    box-shadow: none;
+}
+
+.dark.clear.read-only {
+    color: var(--secondary-color);
+}
+
 .clear-inversed {
+    color: var(--secondary-color);
+}
+
+.dark.clear-inversed {
     color: var(--tertiary-color);
 }
 
@@ -33,6 +47,16 @@
 
 .clear-inversed:disabled {
     background-color: var(--secondary-color)
+}
+
+.clear-inversed.read-only {
+    color: var(--tertiary-color);
+    cursor: default;
+    box-shadow: none;
+}
+
+.dark.clear-inversed.read-only {
+    color: var(--secondary-color);
 }
 
 .error {

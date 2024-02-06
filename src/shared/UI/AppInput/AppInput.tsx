@@ -14,10 +14,11 @@ interface AppInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onC
     onChange?: (value: string) => void;
     theme?: AppInputTheme;
     hasError?: boolean;
+    isReadOnly?: boolean;
 }
 
 export const AppInput: FC<AppInputProps> = (props) => {
-    const { onChange, className, type = 'text', theme = 'clear', hasError, ...otherProps } = props;
+    const { onChange, className, type = 'text', theme = 'clear', hasError, isReadOnly, ...otherProps } = props;
     const { theme: appTheme } = useTheme();
     const isDarkTheme = appTheme === 'dark-theme';
 
@@ -27,8 +28,9 @@ export const AppInput: FC<AppInputProps> = (props) => {
 
     return ( 
         <input 
-            className={classNames(cls.AppInput, {[cls.error]: hasError, [cls.dark]: isDarkTheme }, [className, cls[theme]])}
+            className={classNames(cls.AppInput, {[cls.error]: hasError, [cls.dark]: isDarkTheme, [cls['read-only']]: isReadOnly }, [className, cls[theme]])}
             type={type}
+            readOnly={isReadOnly}
             {...otherProps}
             onChange={handleChange}
         />
