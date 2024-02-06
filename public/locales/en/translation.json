@@ -8,5 +8,6 @@
   "Login": "Login",
   "Logout": "Logout",
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Error-401": "Invalid username or password"
 }

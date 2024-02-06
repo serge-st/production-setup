@@ -4,6 +4,7 @@ import axios, { isAxiosError } from 'axios';
 import { UserSchema, userActions } from 'entities/User';
 import { LoginByUsernameError } from '../interfaces/ErrorResponseData';
 import { USER_ACCESS_TOKEN } from 'shared/lib';
+import i18n from 'shared/config/i18n/i18n';
 
 export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectValue: LoginByUsernameError }>(
     'login/loginByUsername',
@@ -22,6 +23,7 @@ export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectV
             return response.data;
         } catch (error) {
             if (!isAxiosError(error)) return rejectWithValue(error.message);
+            if (error.response.status === 401) return rejectWithValue(i18n.t('Error-401'));
             if (Array.isArray(error.response.data.message)) return rejectWithValue(error.response.data.message.join('; '));
             return rejectWithValue(error.response.data.message);
         }
