@@ -19,6 +19,11 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { username, password, isLoading, error } = useSelector(getLoginState);
     const dispatch = useAppDispatch();
     const isFormEmpty = !username || !password;
+
+    const processError = useCallback(() => {
+        if (!error) return;
+        return error === '401' ? t('Error-401') : error;
+    }, [error, t]);
     
     const onUsernameChange = useCallback((value: string) => {
         if (error) dispatch(loginActions.resetError());
@@ -45,9 +50,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         return () => window.removeEventListener('keydown', handleEnter);
     }, [handleEnter]);
 
+
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <AppText className={cls.error} body={error ?? ''} theme='error' />
+            <AppText className={cls.error} body={error && processError()} theme='error' />
             <AppInput 
                 placeholder={t('Username')} 
                 className={cls.input}
