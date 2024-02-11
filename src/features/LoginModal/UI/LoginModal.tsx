@@ -1,4 +1,4 @@
-import { forwardRef, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { LoginForm } from './LoginForm/LoginForm';
 import { Modal } from 'shared/UI';
 import { loginActions } from '../Model/slice/loginSlice';
@@ -9,7 +9,7 @@ interface LoginModalProps {
     onClose: () => void;
 }
 
-export const LoginModal = forwardRef<HTMLDivElement, LoginModalProps>((props, ref) => {
+export const LoginModal: FC<LoginModalProps> = (props) => {
     const {isOpened, onClose} = props;
     const dispatch = useAppDispatch();
 
@@ -20,11 +20,10 @@ export const LoginModal = forwardRef<HTMLDivElement, LoginModalProps>((props, re
     
     return (
         <Modal 
-            ref={ref}
             isOpened={isOpened} 
             onClose={handleClose}
         >
             <LoginForm />
         </Modal>
     );
-});
+};

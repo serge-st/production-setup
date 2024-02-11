@@ -1,4 +1,4 @@
-import { ReactNode, MouseEventHandler, useState, useEffect, useCallback, forwardRef } from 'react';
+import { ReactNode, MouseEventHandler, useState, useEffect, useCallback, FC } from 'react';
 import { classNames, useTheme } from 'shared/lib';
 import cls from './Modal.module.scss';
 import { Mods } from 'shared/lib/classNames/classNames';
@@ -28,7 +28,7 @@ const setBodyScroll = (bodyScrollType: BodyScroll) => {
     }
 };
 
-export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+export const Modal: FC<ModalProps> = (props) => {
     const {
         className,
         children,
@@ -84,7 +84,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     if (!isOpened) return null;
     return (
         <Portal>
-            <div ref={ref} className={classNames(cls.Modal, mods, [className, theme])}>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={handleClose}>
                     <div 
                         className={`app-modal-content ${cls.content}`} 
@@ -98,4 +98,4 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             </div>
         </Portal>
     );
-});
+};
