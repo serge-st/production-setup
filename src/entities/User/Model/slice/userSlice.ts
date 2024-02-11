@@ -12,10 +12,6 @@ const userSlice = createSlice({
         setUserData: (_state, action: PayloadAction<UserSchema>) => {
             return action.payload;
         },
-        initUserData: () => {
-            const userData = localStorage.getItem(USER_ACCESS_TOKEN);
-            return JSON.parse(userData ?? '{}');
-        },
     },
     extraReducers: (builder) => {
         builder

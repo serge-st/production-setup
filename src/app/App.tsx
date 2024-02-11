@@ -1,6 +1,6 @@
 import { FC, Suspense, useEffect } from 'react';
 import { AppRouter } from 'app/providers/AppRouter';
-import { classNames, useAppDispatch, useTheme } from 'shared/lib';
+import { USER_ACCESS_TOKEN, classNames, useAppDispatch, useTheme } from 'shared/lib';
 import { Header } from 'widgets/Header';
 import { Sidebar } from 'widgets/Sidebar';
 import { PageWrapper } from 'pages/PageWrapper';
@@ -11,7 +11,9 @@ export const App: FC = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(userActions.initUserData());
+        const userDataString = localStorage.getItem(USER_ACCESS_TOKEN);
+        const userData = JSON.parse(userDataString ?? '{}');
+        dispatch(userActions.setUserData(userData));
     }, [dispatch]);
     
     return (
