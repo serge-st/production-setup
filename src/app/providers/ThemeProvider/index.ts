@@ -1,9 +1,3 @@
-import { ThemeProvider } from './UI/ThemeProvider';
-import { ThemeContext, Theme } from './lib/ThemeContext';
-
-
-export {
-    ThemeProvider,
-    ThemeContext,
-    Theme,
-};
+export { ThemeProvider } from './UI/ThemeProvider';
+export { ThemeContext } from './lib/ThemeContext';
+export type { Theme } from './lib/ThemeContext';
