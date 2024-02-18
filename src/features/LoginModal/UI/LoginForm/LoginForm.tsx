@@ -10,11 +10,11 @@ import { getLoginState } from '../../Model/selectors/getLoginState';
 import { loginActions } from '../../Model/slice/loginSlice';
 import { loginByUsername } from '../../Model/services/loginByUsername';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
+const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
     const { t } = useTranslation();
     const { username, password, isLoading, error } = useSelector(getLoginState);
     const dispatch = useAppDispatch();
@@ -79,3 +79,5 @@ export const LoginForm = memo(function LoginForm({ className }: LoginFormProps) 
         </div>
     );
 });
+
+export default LoginForm;
