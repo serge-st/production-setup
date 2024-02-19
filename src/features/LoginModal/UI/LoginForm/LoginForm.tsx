@@ -6,19 +6,38 @@ import { AppButton, AppText } from 'shared/UI';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib';
-import { getLoginState } from '../../Model/selectors/getLoginState';
-import { loginActions } from '../../Model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../Model/slice/loginSlice';
 import { loginByUsername } from '../../Model/services/loginByUsername';
+import { useAppStore } from 'shared/lib/hooks/useAppStore';
+import { getLoginUsername } from '../../Model/selectors/getLoginUsername';
+import { getLoginPassword } from '../../Model/selectors/getLoginPassword';
+import { getLoginIsLoading } from '../../Model/selectors/getLoginIsLoading';
+import { getLoginError } from '../../Model/selectors/getLoginError';
 
 export interface LoginFormProps {
     className?: string;
 }
 
 const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
+    const store = useAppStore();
     const { t } = useTranslation();
-    const { username, password, isLoading, error } = useSelector(getLoginState);
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
+
     const dispatch = useAppDispatch();
     const isFormEmpty = !username || !password;
+
+    useEffect(() => {
+        store.reducerManager.add('login', loginReducer);
+        dispatch({ type: '@INIT loginReducer'});
+
+        return () => {
+            store.reducerManager.remove('login');
+            dispatch({ type: '@REMOVE loginReducer' });
+        };
+    }, [dispatch, store.reducerManager]);
 
     const processError = useCallback(() => {
         if (!error) return;

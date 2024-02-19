@@ -3,5 +3,7 @@ import { LoginSchema } from 'features/LoginModal';
 
 export interface StateSchema {
     userData: UserSchema;
-    login: LoginSchema;
+    login?: LoginSchema;
 }
+
+export type StateSchemaKey = keyof StateSchema;
