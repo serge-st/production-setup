@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LoginModal } from './LoginModal';
 import { TranslationsDecorator } from 'shared/config/storybook/decorators/TranslationsDecorator';
 import { StateDecorator } from 'shared/config/storybook/decorators/StateDecorator';
+import { loginReducer } from '../Model/slice/loginSlice';
+import { ReducersMapObject } from 'redux';
+import { StateSchema } from 'app/providers/StoreProvider';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -21,6 +24,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const loginAsyncReducer = { login: loginReducer } as ReducersMapObject<StateSchema>;
+
 export const Default: Story = {
     args: {
         isOpened: true,
@@ -28,7 +33,7 @@ export const Default: Story = {
     },
     decorators: [
         TranslationsDecorator(),
-        StateDecorator({ login: { username: '', password: '' } }),
+        StateDecorator({ login: { username: '', password: '' } }, loginAsyncReducer),
     ],
 };
 
@@ -39,7 +44,7 @@ export const Error: Story = {
     },
     decorators: [
         TranslationsDecorator(),
-        StateDecorator({ login: { username: '', password: '', error: 'Some backend error' } }),
+        StateDecorator({ login: { username: '', password: '', error: 'Some backend error' } }, loginAsyncReducer),
     ],
 };
 
@@ -50,6 +55,6 @@ export const Loading: Story = {
     },
     decorators: [
         TranslationsDecorator(),
-        StateDecorator({ login: { username: 'test', password: 'user', isLoading: true } }),
+        StateDecorator({ login: { username: 'test', password: 'user', isLoading: true } }, loginAsyncReducer),
     ],
 };

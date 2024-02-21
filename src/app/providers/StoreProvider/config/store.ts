@@ -7,8 +7,9 @@ interface StoreWithReducerManager extends ReturnType<typeof configureStore<State
     reducerManager?: ReturnType<typeof createReducerManager>;
 }
 
-export const createReduxStore = (initialState?: StateSchema) => {
+export const createReduxStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
     const rootReducer: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         userData: userReducer,
     };
 

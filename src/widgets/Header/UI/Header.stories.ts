@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { TranslationsDecorator } from 'shared/config/storybook/decorators/TranslationsDecorator';
 import { StateDecorator } from 'shared/config/storybook/decorators/StateDecorator';
+import { ReducersMapObject } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { loginReducer } from 'features/LoginModal/Model/slice/loginSlice';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -21,6 +24,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const loginAsyncReducer = { login: loginReducer } as ReducersMapObject<StateSchema>;
+
 export const Default: Story = {
     args: {},
     decorators: [
@@ -30,7 +35,7 @@ export const Default: Story = {
                 password: '',
                 isLoading: false,
             },
-        }),
+        }, loginAsyncReducer),
         TranslationsDecorator(),
     ],
 };
