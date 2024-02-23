@@ -6,6 +6,13 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('Test loginByUsername Async Thunk', () => {
+    const state = {
+        login: {
+            username: 'testUser',
+            password: 'testPass',
+        },
+    };
+
     const response = {
         data: {
             user: {
@@ -21,7 +28,7 @@ describe('Test loginByUsername Async Thunk', () => {
 
     beforeEach(() => {
         dispatch = jest.fn();
-        getState = jest.fn();
+        getState = jest.fn().mockReturnValue(state);
     });
 
     it('Should retrieve user data', async () => {
