@@ -13,7 +13,9 @@ export const loginByUsername = createAsyncThunk<UserSchema, undefined, { rejectV
         const { username, password } = login;
 
         try {
+            console.log('before req');
             const response = await axios.post<UserSchema>('http://localhost:3335/auth/login', { username, password });
+            console.log('response inside thunk', response);
 
             if (!response.data) throw new Error('Unexpected response');
 
